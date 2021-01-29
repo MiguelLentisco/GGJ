@@ -41,10 +41,15 @@ public class SpawnBoats : MonoBehaviour
         spawning = false;
     }
 
+    void SpawnEnemiesInRound(int round)
+    {
+        StartCoroutine(SpawnEnemies(round));
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!spawning && Input.GetKeyDown(KeyCode.A))
-            StartCoroutine(SpawnEnemies(3));
+            SpawnEnemiesInRound(3);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BarcoMovement : MonoBehaviour
 {
     [SerializeField]
-    Transform luz;
+    Transform luz = null;
     [SerializeField]
     float radioDeteccion = 30.0f;
     [SerializeField]
@@ -13,21 +13,18 @@ public class BarcoMovement : MonoBehaviour
     [SerializeField]
     float velocidad = 10.0f;
     [SerializeField]
-    float velocidadMaxima = 10.0f;
-    [SerializeField]
     float velocidadRotacion = 1.0f;
 
     // Private
-    Rigidbody rb;
     float radioDeteccionSqr;
     float radioAcercamientoSqr;
     Vector3 ultimaPosicionLuz;
-    bool continuar;
+    bool continuar = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        ultimaPosicionLuz = luz.position;
         radioDeteccionSqr = radioDeteccion * radioDeteccion;
         radioAcercamientoSqr = radioAcercamiento * radioAcercamiento;
     }

@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b520bfa1bb2e9014eabc8683dfad0ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBoat: {fileID: 5852648223129714757, guid: 6b8153a89ae501943ad050d0404d7097, type: 3}
-  spawnPoint: {x: 0, y: 0, z: 0}
-  spawnRadius: 25
+  prefabBoat: {fileID: 4026602132566629718, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
+  spawnRadiusX: 100
+  spawnRadiusZ: 100
   minTimeToSpawn: 0
   maxTimeToSpawn: 1
