@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AguaGuay
+  m_Name: Agua
   m_Shader: {fileID: -6465566751694194690, guid: cb041bfb2c4cfc547aa2bba2c3c34f28, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - Vector1_44E29566: 1
-    - Vector1_5FBDAF9A: 10
+    - Vector1_5FBDAF9A: 20
     - Vector1_658A04BD: 7.5
     - Vector1_6EB850C: 0.5
     - Vector1_7F1501E6: 35
