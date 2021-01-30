@@ -149,4 +149,29 @@ public class GameManager : MonoBehaviour
         dinero += amount;
         moneyText.text = dinero.ToString() + "$";
     }
+
+    public void ShieldPowerUp()
+    {
+
+    }
+
+    public void IncreaseRangePowerUp()
+    {
+
+    }
+
+    public void IncreaseLightPowerUp()
+    {
+
+    }
+
+    public void ShowMapPowerUp()
+    {
+
+    }
+
+    public void SlowdownPowerUp()
+    {
+
+    }
 }
