@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 6196037458252122308}
   - component: {fileID: 6196037458252122309}
   - component: {fileID: 6196037458252122299}
-  - component: {fileID: 604130102988850435}
   m_Layer: 0
-  m_Name: Luz_Faro
+  m_Name: LuzFaro
   m_TagString: Luz
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,17 +106,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!136 &604130102988850435
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6196037458252122310}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.63
-  m_Height: 3.56
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 1.82}
