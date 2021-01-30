@@ -24,6 +24,7 @@ public class BarcoMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        luz = GameObject.FindGameObjectWithTag("Faro").transform;
         ultimaPosicionLuz = luz.position;
         radioDeteccionSqr = radioDeteccion * radioDeteccion;
         radioAcercamientoSqr = radioAcercamiento * radioAcercamiento;
