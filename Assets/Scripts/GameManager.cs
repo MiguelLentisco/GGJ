@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField]
     SpawnBoats boatsSpawner = null;
     Lighthouse lighthouse = null;
 
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     int rondaActual = 0;
     int nBarcosRestantes = 0;
-    float dinero = 0.0f;
+    public float dinero = 0.0f;
 
     int[] powerUpsAvailable = new int[(int) PowerUp.NPOWERUPS];
     
