@@ -10,6 +10,8 @@ public class Lighthouse : MonoBehaviour
     float minScale = 1.6f;
     float maxScale = 2.667f;
 
+    [SerializeField] GameObject face;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class Lighthouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(new Vector3(ligth.transform.position.x, transform.position.y, ligth.transform.position.z));
+        face.transform.LookAt(new Vector3(ligth.transform.position.x, transform.position.y, ligth.transform.position.z));
     }
 
     public IEnumerator ScaleUpOverTime(float time)
