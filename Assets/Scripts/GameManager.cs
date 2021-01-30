@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
-        AvanzaRonda();
+        //AvanzaRonda();
     }
 
     // Update is called once per frame
