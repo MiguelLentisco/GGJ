@@ -7,17 +7,22 @@ public class LevelManager : MonoBehaviour
 {
     string actualNivel;
 
+    [SerializeField]
+    Animator transition;
+
     private void Start()
     {
         // Cargar el primer nivel (el main menu)
         //SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        // actualNivel = "MainMenu"
     }
 
     public void cargarNivel(string pNombreNivel)
     {
-        SceneManager.UnloadSceneAsync(actualNivel);
-        SceneManager.LoadScene(pNombreNivel, LoadSceneMode.Additive);
-        actualNivel = pNombreNivel;
+        StartCoroutine(cargarTransicion());
+        //SceneManager.UnloadSceneAsync(actualNivel);
+        //SceneManager.LoadScene(pNombreNivel, LoadSceneMode.Additive);
+        //actualNivel = pNombreNivel;
     }
 
     public void salirNivel()
@@ -25,7 +30,7 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ajustarVolumen (float volumen)
+    public void ajustarVolumen(float volumen)
     {
         Debug.Log(volumen);
     }
@@ -38,5 +43,14 @@ public class LevelManager : MonoBehaviour
     public void ajustarFullScreen(bool fullscreen)
     {
         Screen.fullScreen = fullscreen;
+    }
+
+    IEnumerator cargarTransicion()
+    {
+        // Cargar animación
+        transition.SetTrigger("Start");
+
+        // Esperar un poco
+        yield return new WaitForSeconds(1);
     }
 }
