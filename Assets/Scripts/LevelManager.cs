@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class LevelManager : MonoBehaviour
     Animator transition;
     [SerializeField]
     GameObject pauseMenuUI;
+    [SerializeField]
+    AudioMixer audioMixer;
 
     private void Start()
     {
@@ -43,6 +46,7 @@ public class LevelManager : MonoBehaviour
     public void manageVolume(float pVolume)
     {
         Debug.Log(pVolume);
+        audioMixer.SetFloat("MainVolume", pVolume);
     }
 
     public void manageQuality(int pQuality)

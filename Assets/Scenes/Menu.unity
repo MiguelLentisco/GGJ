@@ -681,6 +681,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 915045730278713948, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 7ff0de006fa859e4a97584308a5366ae, type: 2}
     - target: {fileID: 915045730278713950, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -738,6 +742,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6285051399150767023, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7ff0de006fa859e4a97584308a5366ae, type: 2}
+    - target: {fileID: 6285051399150767023, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8034775696682529875, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -804,12 +816,16 @@ PrefabInstance:
       objectReference: {fileID: 1839618318}
     - target: {fileID: 8034775696924981235, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: cargarNivel
+      value: loadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8034775696931941470, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1839618318}
+    - target: {fileID: 8034775696931941470, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: manageFullScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 8034775696987213514, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
@@ -834,9 +850,41 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1839618318}
+    - target: {fileID: 8034775697958980032, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: manageQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034775698304151089, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 8034775698386018918, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1839618318}
+    - target: {fileID: 8034775698386018918, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: manageVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034775698386018918, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034775698386018918, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034775698386018918, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_MaxValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034775698386018918, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034775698386018918, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
