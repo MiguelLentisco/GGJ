@@ -21,7 +21,7 @@ public class BarcoExplosion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Barco"))
         {
-            GameManager.instance.BarcoPerdido(2);
+            GameManager.instance.BarcoPerdido(1);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }

@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void BarcoPerdido(int nBarcosPerdidos)
     {
-        nBarcosPerdidos = Mathf.Max(0, nBarcosPerdidos - nBarcosPerdidos);
+        nBarcosRestantes = Mathf.Max(0, nBarcosRestantes - nBarcosPerdidos);
         if (nBarcosPerdidos == 0)
             PlayerPierde();
     }
