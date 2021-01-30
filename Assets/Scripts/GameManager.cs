@@ -20,8 +20,9 @@ public class GameManager : MonoBehaviour
     float slowdownBoatsPercent = 0.5f;
     [SerializeField]
     float timeSlowdownBoats = 10.0f;
-    
 
+    int rondaActual = 0;
+    int nBarcosRestantes = 0;
     float dinero = 0.0f;
 
     private void Awake()
@@ -40,8 +41,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Assert.IsNotNull(boatsSpawner);
+        boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
+        AvanzaRonda();
     }
 
     // Update is called once per frame
@@ -49,6 +51,15 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
             StartPUSlowdownBoats();
+        else if (Input.GetKeyDown(KeyCode.D))
+            StartPUIncreaseLighthouseRaidus();
+        else if (Input.GetKeyDown(KeyCode.W))
+            SpawnBoats();
+    }
+
+    void SpawnBoats()
+    {
+        boatsSpawner.SpawnEnemiesInRound(rondaActual);
     }
 
     public void StartPUIncreaseLighthouseRaidus()
@@ -80,5 +91,24 @@ public class GameManager : MonoBehaviour
         {
             boat.GetComponent<BarcoMovement>().UpdateSpeedPercent(1.0f);
         }
+    }
+
+    void BarcoPerdido()
+    {
+        --nBarcosRestantes;
+        if (nBarcosRestantes == 0)
+            PlayerPierde();
+    }
+    
+    void PlayerPierde()
+    {
+
+    }
+
+    void AvanzaRonda()
+    {
+        ++rondaActual;
+        nBarcosRestantes = rondaActual * (rondaActual + 1) / 2;
+        SpawnBoats();
     }
 }
