@@ -6,9 +6,9 @@ public class Lighthouse : MonoBehaviour
 {
     LuzFaro ligth;
     Quaternion originalRot;
-    [SerializeField] float maxDistance = 3f;
-    float minScale = 1.6f;
-    float maxScale = 2.667f;
+    [SerializeField] float maxDistance = 5f;
+    float minScale = 2.6f;
+    float maxScale = 3.6f;
 
     [SerializeField] GameObject face;
 
@@ -44,7 +44,7 @@ public class Lighthouse : MonoBehaviour
         {
             gameObject.transform.Find("Limit").transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
             currentTime += Time.deltaTime;
-            maxDistance = 5f;
+            maxDistance = 7f;
             ligth.ChangeDistance(maxDistance);
             yield return null;
         } while (currentTime <= time);
@@ -62,7 +62,7 @@ public class Lighthouse : MonoBehaviour
         {
             gameObject.transform.Find("Limit").transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
             currentTime += Time.deltaTime;
-            maxDistance = 3f;
+            maxDistance = 5f;
             ligth.ChangeDistance(maxDistance);
             yield return null;
         } while (currentTime <= time);
