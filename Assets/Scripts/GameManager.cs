@@ -130,8 +130,13 @@ public class GameManager : MonoBehaviour
         SpawnBoats();
     }
 
-    void AddPowerUp(PowerUp powerup, int cantidad)
+    public void AddPowerUp(PowerUp powerup, int cantidad)
     {
         powerUpsAvailable[(int) powerup] += cantidad;
+    }
+
+    public int getNumberPowerUps(PowerUp powerup)
+    {
+        return powerUpsAvailable[(int) powerup];
     }
 }
