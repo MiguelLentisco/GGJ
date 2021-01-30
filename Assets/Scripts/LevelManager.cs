@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public Dictionary<string, string> levelDictionary = new Dictionary<string, string>();
+
     public static LevelManager instance;
     string actualLevel;
 
@@ -31,6 +33,8 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        initializeDictionary();
     }
 
     private void Start()
@@ -38,6 +42,11 @@ public class LevelManager : MonoBehaviour
         // Cargar el primer nivel (el main menu)
         //SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
         // actualNivel = "MainMenu"
+    }
+
+    private void initializeDictionary()
+    {
+        levelDictionary.Add("Scene1", "Menu");
     }
 
     private void Update()
@@ -50,7 +59,7 @@ public class LevelManager : MonoBehaviour
     {
         StartCoroutine(loadTransitionAnimation());
         //SceneManager.UnloadSceneAsync(actualLevel);
-        //SceneManager.LoadScene(pLevelName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(pLevelName);
         //actualLevel = pLevelName;
     }
 
