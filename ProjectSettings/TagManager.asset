@@ -10,6 +10,7 @@ TagManager:
   - Faro
   - Barco
   - Luz
+  - Spawner
   layers:
   - Default
   - TransparentFX
