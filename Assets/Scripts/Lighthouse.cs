@@ -30,15 +30,7 @@ public class Lighthouse : MonoBehaviour
         transform.LookAt(new Vector3(lightPos.position.x, transform.position.y, lightPos.position.z));
     }
 
-    void IncreaseRadius()
-    {
-        gameObject.transform.Find("Limit").transform.localScale = new Vector3(2.6667f, 2.6667f, 2.6667f);
-
-        maxDistance = 5f;
-        lightPos.gameObject.GetComponent<Luz_Faro>().ChangeDistance(maxDistance);
-    }
-
-    IEnumerator ScaleUpOverTime(float time)
+    public IEnumerator ScaleUpOverTime(float time)
     {
         Vector3 originalScale = new Vector3(minScale, minScale, minScale);
         Vector3 destinationScale = new Vector3(maxScale, maxScale, maxScale);
@@ -56,7 +48,7 @@ public class Lighthouse : MonoBehaviour
 
     }
 
-    IEnumerator ScaleDownOverTime(float time)
+    public IEnumerator ScaleDownOverTime(float time)
     {
         Vector3 originalScale = new Vector3(maxScale, maxScale, maxScale);
         Vector3 destinationScale = new Vector3(minScale, minScale, minScale);
