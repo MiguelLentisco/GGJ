@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 604130102988850435}
   m_Layer: 0
   m_Name: Luz_Faro
-  m_TagString: Untagged
+  m_TagString: Luz
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fa28a6e238e0d46a0aad7f72b80f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lighthousePos: {fileID: 0}
   speed: 5
 --- !u!136 &604130102988850435
 CapsuleCollider:

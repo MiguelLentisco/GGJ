@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lighthouse : MonoBehaviour
 {
-    [SerializeField] Transform lightPos;
+    Luz_Faro ligth;
     Quaternion originalRot;
     [SerializeField] float maxDistance = 3f;
     float minScale = 1.6f;
@@ -14,8 +14,9 @@ public class Lighthouse : MonoBehaviour
     void Start()
     {
         originalRot = transform.rotation;
-        
-        lightPos.gameObject.GetComponent<Luz_Faro>().ChangeDistance(maxDistance);
+
+        ligth = GameObject.FindGameObjectWithTag("Luz").GetComponent<Luz_Faro>();
+        ligth.ChangeDistance(maxDistance);
     }
 
     void OnDrawGizmos()
@@ -27,7 +28,7 @@ public class Lighthouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(new Vector3(lightPos.position.x, transform.position.y, lightPos.position.z));
+        transform.LookAt(new Vector3(ligth.transform.position.x, transform.position.y, ligth.transform.position.z));
     }
 
     public IEnumerator ScaleUpOverTime(float time)
@@ -42,7 +43,7 @@ public class Lighthouse : MonoBehaviour
             gameObject.transform.Find("Limit").transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
             currentTime += Time.deltaTime;
             maxDistance = 5f;
-            lightPos.gameObject.GetComponent<Luz_Faro>().ChangeDistance(maxDistance);
+            ligth.ChangeDistance(maxDistance);
             yield return null;
         } while (currentTime <= time);
 
@@ -60,7 +61,7 @@ public class Lighthouse : MonoBehaviour
             gameObject.transform.Find("Limit").transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
             currentTime += Time.deltaTime;
             maxDistance = 3f;
-            lightPos.gameObject.GetComponent<Luz_Faro>().ChangeDistance(maxDistance);
+            ligth.ChangeDistance(maxDistance);
             yield return null;
         } while (currentTime <= time);
 

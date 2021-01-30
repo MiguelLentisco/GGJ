@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5057093896832997160}
   - component: {fileID: 5057093896832997175}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5057093896832997174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43995658, y: -16.848438, z: -13.101656}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,3 +47,5 @@ MonoBehaviour:
   lighthouse: {fileID: 0}
   increasedLighthouseRadius: 5
   timeIncreaseLighthouseRadius: 10
+  slowdownBoatsPercent: 0.5
+  timeSlowdownBoats: 10
