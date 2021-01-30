@@ -11,6 +11,10 @@ TagManager:
   - Barco
   - Luz
   - Spawner
+  - PuebloAzul
+  - PuebloRojo
+  - PuebloAmarillo
+  - PuebloVerde
   layers:
   - Default
   - TransparentFX

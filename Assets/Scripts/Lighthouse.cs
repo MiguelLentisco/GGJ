@@ -6,7 +6,7 @@ public class Lighthouse : MonoBehaviour
 {
     LuzFaro ligth;
     Quaternion originalRot;
-    [SerializeField] float maxDistance = 5f;
+    [SerializeField] float maxDistance = 5.0f;
     float minScale = 2.6f;
     float maxScale = 3.6f;
 

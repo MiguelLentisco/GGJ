@@ -22,9 +22,9 @@ public class SpawnBoats : MonoBehaviour
     }
 
     [SerializeField]
-    Barco[] tiposBarcos;
+    Barco[] tiposBarcos = null;
     [SerializeField]
-    SpawnPoint[] puntosSpawn;
+    SpawnPoint[] puntosSpawn = null;
 
     [SerializeField]
     float minTimeToSpawn = 0.0f;
