@@ -12,7 +12,7 @@ public class LuzFaro : MonoBehaviour
     
     void Start()
     {
-        lighthousePos = GameObject.FindGameObjectWithTag("Luz").transform;
+        lighthousePos = GameObject.FindGameObjectWithTag("Faro").transform;
         newPosition = transform.position;
     }
 
