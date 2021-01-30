@@ -47,8 +47,8 @@ Light:
   m_Color: {r: 0.8679245, g: 0.4932231, b: 0.05322181, a: 1}
   m_Intensity: 1
   m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 60.326916
+  m_InnerSpotAngle: 28.686695
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -106,7 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fa28a6e238e0d46a0aad7f72b80f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lighthousePos: {fileID: 0}
   speed: 5
 --- !u!136 &604130102988850435
 CapsuleCollider:

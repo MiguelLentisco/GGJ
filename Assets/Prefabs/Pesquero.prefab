@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pesquero
       objectReference: {fileID: 0}
+    - target: {fileID: 4085409021089472811, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
+      propertyPath: intervalSeconds
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5619956210601147840, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
       propertyPath: m_Materials.Array.size
       value: 4
@@ -131,5 +135,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2783131832183395012, guid: 4e71fbdcea0949141b46730c5e619ce0, type: 3}
+    - target: {fileID: 8433428614310203040, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433428614310203040, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433428614310203040, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
