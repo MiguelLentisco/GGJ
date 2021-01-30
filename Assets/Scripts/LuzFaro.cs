@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Luz_Faro : MonoBehaviour
+public class LuzFaro : MonoBehaviour
 {
     Vector3 newPosition;
     Transform lighthousePos;

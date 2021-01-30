@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lighthouse : MonoBehaviour
 {
-    Luz_Faro ligth;
+    LuzFaro ligth;
     Quaternion originalRot;
     [SerializeField] float maxDistance = 3f;
     float minScale = 1.6f;
@@ -15,7 +15,7 @@ public class Lighthouse : MonoBehaviour
     {
         originalRot = transform.rotation;
 
-        ligth = GameObject.FindGameObjectWithTag("Luz").GetComponent<Luz_Faro>();
+        ligth = GameObject.FindGameObjectWithTag("Luz").GetComponent<LuzFaro>();
         ligth.ChangeDistance(maxDistance);
     }
 
