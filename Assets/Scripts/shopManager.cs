@@ -20,11 +20,15 @@ public class shopManager : MonoBehaviour
 
     float savedMoney;
     GameManager GM;
+    LevelManager LM;
 
     void Start()
     {
         // Set saved Data
         GM = FindObjectsOfType<GameManager>()[0];
+        LM = FindObjectOfType<LevelManager>();
+        LM.setCanPause(false);
+        LM.setCanHUD(false);
         savedMoney = GM.dinero;
         amountPowerUp[0] = GM.GetNumberPowerUps(PowerUp.IncreaseLimit);
         amountPowerUp[1] = GM.GetNumberPowerUps(PowerUp.IncreaseLight);
@@ -47,7 +51,7 @@ public class shopManager : MonoBehaviour
 
     public void buyPowerUp(int powerup)
     {
-        if(savedMoney > costPowerUp[powerup]) // Comprar powerup
+        if(savedMoney >= costPowerUp[powerup]) // Comprar powerup
         {
             savedMoney -= costPowerUp[powerup];
             amountPowerUp[powerup]++;
@@ -67,6 +71,7 @@ public class shopManager : MonoBehaviour
     {
         sendDataToGameManager();
         // Llamar a LevelManager para cambiar de nivel
+        LM.loadLevel("string");
     }
 
     IEnumerator warningForSeconds(int sec)

@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
     [SerializeField]
     Sound[] sounds;
 
@@ -16,7 +17,20 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
+
+
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(this);
+        }
     }
+
+
 
     public void playSound (string name)
     {

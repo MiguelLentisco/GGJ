@@ -6,16 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager instance;
     string actualLevel;
 
     [SerializeField]
     bool canPause = false;
+    [SerializeField]
+    bool canHUD = false;
     [SerializeField]
     Animator transition;
     [SerializeField]
     GameObject pauseMenuUI;
     [SerializeField]
     AudioMixer audioMixer;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
@@ -73,6 +89,11 @@ public class LevelManager : MonoBehaviour
     public void setCanPause(bool pausable)
     {
         canPause = pausable;
+    }
+
+    public void setCanHUD(bool pausable)
+    {
+        canHUD = pausable;
     }
 
     IEnumerator loadTransitionAnimation()
