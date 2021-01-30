@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Assertions;
 
 [System.Serializable]
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
     float slowdownBoatsPercent = 0.5f;
     [SerializeField]
     float timeSlowdownBoats = 10.0f;
+    [SerializeField]
+    Text moneyText;
 
     int rondaActual = 0;
     int nBarcosRestantes = 0;
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
 
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
+        moneyText.text = dinero.ToString() + "$";
         //AvanzaRonda();
     }
 
@@ -138,5 +142,11 @@ public class GameManager : MonoBehaviour
     public int GetNumberPowerUps(PowerUp powerup)
     {
         return powerUpsAvailable[(int) powerup];
+    }
+
+    public void AddMoney(float amount)
+    {
+        dinero += amount;
+        moneyText.text = dinero.ToString() + "$";
     }
 }

@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 4026602132566629713}
   - component: {fileID: 4085409021089472811}
   - component: {fileID: 2736244777161527856}
+  - component: {fileID: -1866359458744595416}
   m_Layer: 0
-  m_Name: PrefabPadre_Barco
+  m_Name: PrefabPadreBarco
   m_TagString: Barco
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,13 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9023623613a4e4d43a8aff4996e97fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightBoat: {fileID: 0}
   intervalSeconds: 0
   luzRoja: {r: 1, g: 0, b: 0, a: 0}
   luzVerde: {r: 0, g: 1, b: 0, a: 0}
   luzAmarilla: {r: 1, g: 1, b: 0, a: 0}
   luzAzul: {r: 0, g: 0, b: 1, a: 0}
-  colorBarco: 1
 --- !u!114 &2736244777161527856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +113,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boom: {fileID: 5621058680190695916, guid: 15344af3d83c5584facab36441a1f200, type: 3}
+--- !u!114 &-1866359458744595416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026602132566629718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4116c93719205ab458ee8cc2c172ddaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8493945670815352570
 GameObject:
   m_ObjectHideFlags: 0
