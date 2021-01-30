@@ -8,6 +8,9 @@ public class BarcoPuertos : MonoBehaviour
 
     [SerializeField] float dineroBarco = 100f;
 
+    [SerializeField]
+    GameObject winparticle;
+
     private void Start()
     {
         colorBarco = GetComponent<BarcoLuz>().colorBarco;
@@ -19,6 +22,8 @@ public class BarcoPuertos : MonoBehaviour
             || other.gameObject.CompareTag("PuebloAmarillo") || other.gameObject.CompareTag("PuebloVerde"))
         {
             GameManager.instance.AddMoney(HowMuchMoneyIEarned(other.tag));
+            Instantiate(winparticle, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 
