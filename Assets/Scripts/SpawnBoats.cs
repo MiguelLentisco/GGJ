@@ -2,23 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class SpawnBoats : MonoBehaviour
 {
-    [SerializeField]
-    GameObject prefabBoat;
+    [System.Serializable]
+    struct Barco
+    {
+        public GameObject prefabBarco;
+        public float proporcionSpawn;
+    }
+
+    [System.Serializable]
+    struct SpawnPoint
+    {
+        public Transform center;
+        public float rX;
+        public float rZ;
+    }
 
     [SerializeField]
-    float spawnRadiusX = 100.0f;
+    Barco[] tiposBarcos;
     [SerializeField]
-    float spawnRadiusZ = 100.0f;
+    SpawnPoint[] puntosSpawn;
 
     [SerializeField]
     float minTimeToSpawn = 0.0f;
     [SerializeField]
     float maxTimeToSpawn = 10.0f;
 
-    bool spawning = false;
+    void Start()
+    {
+        System.Array.Sort(tiposBarcos, delegate (Barco x, Barco y) { return x.proporcionSpawn.CompareTo(y.proporcionSpawn); });
+    }
 
     int NumberBoatsToSpawn(int round)
     {
@@ -27,22 +43,36 @@ public class SpawnBoats : MonoBehaviour
 
     IEnumerator SpawnEnemies(int round)
     {
-        spawning = true;
-        int nEnemiesToSpawn = NumberBoatsToSpawn(round);
-        while (nEnemiesToSpawn > 0)
+        int totalBoatsToSpawn = NumberBoatsToSpawn(round);
+        int nBoatsToSpawn = totalBoatsToSpawn;
+
+        foreach (Barco tipoBarco in tiposBarcos)
         {
-            yield return new WaitForSeconds(Random.Range(minTimeToSpawn, maxTimeToSpawn));
-            Vector3 posSpawn = transform.position;
-            posSpawn.x += Random.Range(posSpawn.x - spawnRadiusX, posSpawn.x + spawnRadiusX);
-            posSpawn.z += Random.Range(posSpawn.z - spawnRadiusZ, posSpawn.z + spawnRadiusZ);
-            Instantiate(prefabBoat, posSpawn, Quaternion.identity);
-            --nEnemiesToSpawn;
+            int nSubBoatsToSpawn = Mathf.RoundToInt(totalBoatsToSpawn * tipoBarco.proporcionSpawn);
+            while (nSubBoatsToSpawn > 0 && nBoatsToSpawn > 0)
+            {
+                yield return generateBoat(tipoBarco.prefabBarco);
+                --nSubBoatsToSpawn;
+                --nBoatsToSpawn;
+            }
         }
-        Debug.Log(nEnemiesToSpawn);
-        spawning = false;
+
+        Assert.IsTrue(nBoatsToSpawn <= tiposBarcos.Length);
+        for (int i = 0; i < nBoatsToSpawn; ++i)
+            yield return generateBoat(tiposBarcos[i].prefabBarco);
     }
 
-    void SpawnEnemiesInRound(int round)
+    IEnumerator generateBoat(GameObject prefabBarco)
+    {
+        SpawnPoint puntoSpawn = puntosSpawn[Random.Range(0, puntosSpawn.Length)];
+        Vector3 pos = puntoSpawn.center.position;
+        yield return new WaitForSeconds(Random.Range(minTimeToSpawn, maxTimeToSpawn));
+        pos.x = Random.Range(pos.x - puntoSpawn.rX, pos.x + puntoSpawn.rX);
+        pos.z = Random.Range(pos.z - puntoSpawn.rZ, pos.z + puntoSpawn.rZ);
+        Instantiate(prefabBarco, pos, Quaternion.identity);
+    }
+
+    public void SpawnEnemiesInRound(int round)
     {
         StartCoroutine(SpawnEnemies(round));
     }
@@ -50,7 +80,5 @@ public class SpawnBoats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!spawning && Input.GetKeyDown(KeyCode.A))
-            SpawnEnemiesInRound(3);
     }
 }

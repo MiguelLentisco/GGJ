@@ -43,8 +43,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b520bfa1bb2e9014eabc8683dfad0ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBoat: {fileID: 4026602132566629718, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
-  spawnRadiusX: 100
-  spawnRadiusZ: 100
-  minTimeToSpawn: 0
-  maxTimeToSpawn: 1
+  tiposBarcos:
+  - prefabBarco: {fileID: 649723574290143793, guid: 6aa3ecc2f0f55824f9ce7a2b36d2e078, type: 3}
+    proporcionSpawn: 0.2
+  - prefabBarco: {fileID: 649723574290143793, guid: 9ea291fb5d54bdf49b2f39db917de327, type: 3}
+    proporcionSpawn: 0.15
+  - prefabBarco: {fileID: 649723574290143793, guid: e12020e14c9259b4f82ff996cedfa9ea, type: 3}
+    proporcionSpawn: 0.3
+  - prefabBarco: {fileID: 649723574290143793, guid: ba5e6dd52641cf34a9fbeaca9e5f8f31, type: 3}
+    proporcionSpawn: 0.2
+  - prefabBarco: {fileID: 0}
+    proporcionSpawn: 0
+  puntosSpawn:
+  - center: {fileID: 0}
+    rX: 0
+    rZ: 0
+  - center: {fileID: 0}
+    rX: 0
+    rZ: 0
+  - center: {fileID: 0}
+    rX: 0
+    rZ: 0
+  - center: {fileID: 0}
+    rX: 0
+    rZ: 0
+  minTimeToSpawn: 1.5
+  maxTimeToSpawn: 5
