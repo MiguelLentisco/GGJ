@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4026602132566629713}
   m_Layer: 0
   m_Name: PrefabPadre_Barco
-  m_TagString: Untagged
+  m_TagString: Barco
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abcab892bb6f4cb44bfa98864aa26dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luz: {fileID: 6196037458252122308, guid: 8b78d28a17bdc9f4387e089ad06b897f, type: 3}
   radioDeteccion: 30
   radioAcercamiento: 5
   velocidad: 6
