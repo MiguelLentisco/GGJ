@@ -23,9 +23,11 @@ public class GameManager : MonoBehaviour
     Lighthouse lighthouse = null;
 
     [SerializeField]
-    float increasedLighthouseRadius = 5.0f;
+    float increaseRadiusLimit = 3.0f;
     [SerializeField]
-    float timeIncreaseLighthouseRadius = 10.0f;
+    float timeIncreaseRadiusLimit = 2.5f;
+    [SerializeField]
+    float durationIncreaseRadiusLimit = 10.0f;
 
     [SerializeField]
     float slowdownBoatsPercent = 0.5f;
@@ -58,8 +60,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
             powerUpsAvailable[i] = 0;
 
-        boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
+        boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         //AvanzaRonda();
     }
 
@@ -86,9 +88,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator UsePUIncreaseLighthouseRadius()
     {
-        yield return lighthouse.ScaleUpOverTime(increasedLighthouseRadius);
-        yield return new WaitForSeconds(timeIncreaseLighthouseRadius);
-        yield return lighthouse.ScaleDownOverTime(increasedLighthouseRadius);
+        yield return lighthouse.ScaleUpOverTime(increaseRadiusLimit, timeIncreaseRadiusLimit);
+        yield return new WaitForSeconds(durationIncreaseRadiusLimit);
+        yield return lighthouse.ScaleDownOverTime(timeIncreaseRadiusLimit);
     }
 
     public void StartPUSlowdownBoats()

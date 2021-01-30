@@ -9,13 +9,22 @@ public class LuzFaro : MonoBehaviour
     Vector3 newPosition;
     Vector3 lighthousePos;
     float maxDistance;
+
     [SerializeField] float speed = 10.0f;
-    
+
+    MeshFilter meshFilter;
+    GameObject limit;
+
+
     void Start()
     {
-        lighthousePos = GameObject.FindGameObjectWithTag("Faro").transform.position;
+        GameObject lighthouse = GameObject.FindGameObjectWithTag("Faro");
+        lighthousePos = lighthouse.transform.position;
+        limit = lighthouse.transform.Find("Limit").gameObject;
+        meshFilter = limit.GetComponent<MeshFilter>();
         luz = GetComponent<Light>();
         newPosition = transform.position;
+        UpdateMaxDistance();
     }
 
     public void ChangeDistance(float newDistance)
@@ -28,6 +37,16 @@ public class LuzFaro : MonoBehaviour
         return Mathf.Tan(luz.spotAngle / 2.0f) * transform.position.y;
     }
 
+    public void UpdateMaxDistance()
+    {
+        Vector3[] vertexList = meshFilter.sharedMesh.vertices;
+        Vector3 centerMesh = (limit.transform.TransformPoint(vertexList[0]) + limit.transform.TransformPoint(vertexList[10])) / 2.0f;
+        centerMesh.y = 0;
+        Vector3 posLight = lighthousePos;
+        posLight.y = 0;
+        maxDistance = Vector3.Distance(centerMesh, posLight);
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -36,7 +55,6 @@ public class LuzFaro : MonoBehaviour
         }
 
         MoveTowardsDestiny();
-
     }
 
     private void MoveTowardsDestiny()
@@ -51,10 +69,8 @@ public class LuzFaro : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.point);
             Vector2 v1 = new Vector2(hit.point.x, hit.point.z);
             Vector2 v2 = new Vector2(lighthousePos.x, lighthousePos.z);
-            Debug.Log(Vector2.Distance(v1, v2));
             if (Vector2.Distance(v1, v2) < maxDistance)
             {
                 newPosition = hit.point;
