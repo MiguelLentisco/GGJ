@@ -69,7 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4026602132566629718, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
       propertyPath: m_Name
-      value: Barco1
+      value: Yate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085409021089472811, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}
+      propertyPath: intervalSeconds
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d3c6846126b4c64aa5ecc6b3f000422, type: 3}

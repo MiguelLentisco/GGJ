@@ -9,6 +9,10 @@ public class BarcoLuz : MonoBehaviour
 
     bool apagado = false;
 
+    private void Start()
+    {
+        lightBoat = transform.Find("Light").GetComponent<Light>();
+    }
     private void OnEnable()
     {
         InvokeRepeating("blinkingLight", 0, intervalSeconds);
