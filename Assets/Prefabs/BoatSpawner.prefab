@@ -52,8 +52,8 @@ MonoBehaviour:
     proporcionSpawn: 0.3
   - prefabBarco: {fileID: 649723574290143793, guid: ba5e6dd52641cf34a9fbeaca9e5f8f31, type: 3}
     proporcionSpawn: 0.2
-  - prefabBarco: {fileID: 0}
-    proporcionSpawn: 0
+  - prefabBarco: {fileID: 649723574290143793, guid: 9ad27112864f6f44f81789a382cab085, type: 3}
+    proporcionSpawn: 0.15
   puntosSpawn:
   - center: {fileID: 0}
     rX: 0
