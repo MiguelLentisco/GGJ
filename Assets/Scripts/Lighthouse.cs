@@ -6,10 +6,8 @@ public class Lighthouse : MonoBehaviour
 {
     LuzFaro luzFaro;
     Transform limit;
-    float originalScale;
+    Vector3 originalScale;
     Transform face;
-
-    float maxScale;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +15,7 @@ public class Lighthouse : MonoBehaviour
         face = transform.Find("faro_01").Find("luz_faro");
         luzFaro = GameObject.FindGameObjectWithTag("Luz").GetComponent<LuzFaro>();
         limit = transform.Find("Limit");
-        originalScale = limit.localScale.x;
+        originalScale = limit.localScale;
     }
 
     // Update is called once per frame
@@ -28,14 +26,12 @@ public class Lighthouse : MonoBehaviour
 
     public IEnumerator ScaleUpOverTime(float maxScale, float time)
     {
-        this.maxScale = maxScale;
         Vector3 destinationScale = new Vector3(maxScale, maxScale, maxScale);
-
         float currentTime = 0.0f;
 
         do
         {
-            gameObject.transform.Find("Limit").transform.localScale = Vector3.Lerp(limit.localScale, destinationScale, currentTime / time);
+            limit.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
             currentTime += Time.deltaTime;
             luzFaro.UpdateMaxDistance();
             yield return null;
@@ -45,13 +41,12 @@ public class Lighthouse : MonoBehaviour
 
     public IEnumerator ScaleDownOverTime(float time)
     {
-        Vector3 originalScale = new Vector3(maxScale, maxScale, maxScale);
-        Vector3 destinationScale = new Vector3(this.originalScale, this.originalScale, this.originalScale);
-
+        Vector3 currentScale = limit.localScale;
         float currentTime = 0.0f;
+
         do
         {
-            gameObject.transform.Find("Limit").transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
+            limit.localScale = Vector3.Lerp(currentScale, originalScale, currentTime / time);
             currentTime += Time.deltaTime;
             luzFaro.UpdateMaxDistance();
             yield return null;

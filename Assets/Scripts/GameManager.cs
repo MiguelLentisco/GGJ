@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
             powerUpsAvailable[i] = 0;
 
-        boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
+        boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         moneyText.text = dinero.ToString() + "$";
         //AvanzaRonda();
     }

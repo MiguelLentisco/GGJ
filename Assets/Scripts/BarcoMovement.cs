@@ -42,7 +42,7 @@ public class BarcoMovement : MonoBehaviour
         dir.y = 0;
         if (ultimaPosicionLuz == luz.position)
         {
-            if (!continuar && dir.sqrMagnitude - radioLuz < radioAcercamientoSqr)
+            if (!continuar && dir.sqrMagnitude < radioAcercamientoSqr)
                 continuar = true;
         }
         else
