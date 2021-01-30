@@ -6,12 +6,13 @@ using UnityEngine;
 public class Luz_Faro : MonoBehaviour
 {
     Vector3 newPosition;
-    [SerializeField] Transform lighthousePos;
+    Transform lighthousePos;
     float maxDistance;
     [SerializeField] float speed = 10.0f;
     
     void Start()
     {
+        lighthousePos = GameObject.FindGameObjectWithTag("Luz").transform;
         newPosition = transform.position;
     }
 
