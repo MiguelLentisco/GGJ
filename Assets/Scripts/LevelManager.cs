@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    string actualNivel;
+    string actualLevel;
 
     [SerializeField]
+    bool canPause = false;
+    [SerializeField]
     Animator transition;
+    [SerializeField]
+    GameObject pauseMenuUI;
 
     private void Start()
     {
@@ -17,35 +21,57 @@ public class LevelManager : MonoBehaviour
         // actualNivel = "MainMenu"
     }
 
-    public void cargarNivel(string pNombreNivel)
+    private void Update()
     {
-        StartCoroutine(cargarTransicion());
-        //SceneManager.UnloadSceneAsync(actualNivel);
-        //SceneManager.LoadScene(pNombreNivel, LoadSceneMode.Additive);
-        //actualNivel = pNombreNivel;
+        if (canPause && Input.GetKeyDown(KeyCode.Escape))
+            stopPlaying();
     }
 
-    public void salirNivel()
+    public void loadLevel(string pLevelName)
+    {
+        StartCoroutine(loadTransitionAnimation());
+        //SceneManager.UnloadSceneAsync(actualLevel);
+        //SceneManager.LoadScene(pLevelName, LoadSceneMode.Additive);
+        //actualLevel = pLevelName;
+    }
+
+    public void quitGame()
     {
         Application.Quit();
     }
 
-    public void ajustarVolumen(float volumen)
+    public void manageVolume(float pVolume)
     {
-        Debug.Log(volumen);
+        Debug.Log(pVolume);
     }
 
-    public void ajustarCalidad(int calidad)
+    public void manageQuality(int pQuality)
     {
-        QualitySettings.SetQualityLevel(calidad);
+        QualitySettings.SetQualityLevel(pQuality);
     }
 
-    public void ajustarFullScreen(bool fullscreen)
+    public void manageFullScreen(bool pFullscreen)
     {
-        Screen.fullScreen = fullscreen;
+        Screen.fullScreen = pFullscreen;
     }
 
-    IEnumerator cargarTransicion()
+    public void stopPlaying()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void resumePlaying()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void setCanPause(bool pausable)
+    {
+        canPause = pausable;
+    }
+
+    IEnumerator loadTransitionAnimation()
     {
         // Cargar animación
         transition.SetTrigger("Start");
