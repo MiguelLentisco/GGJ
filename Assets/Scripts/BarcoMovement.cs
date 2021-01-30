@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarcoMovement : MonoBehaviour
 {
     Transform luz = null;
+    LuzFaro luzFaro = null;
     [SerializeField]
     float radioDeteccion = 30.0f;
     [SerializeField]
@@ -24,7 +25,9 @@ public class BarcoMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        luz = GameObject.FindGameObjectWithTag("Luz").transform;
+        GameObject objetoLuz = GameObject.FindGameObjectWithTag("Luz");
+        luz = objetoLuz.transform;
+        luzFaro = objetoLuz.GetComponent<LuzFaro>();
         ultimaPosicionLuz = luz.position;
         radioDeteccionSqr = radioDeteccion * radioDeteccion;
         radioAcercamientoSqr = radioAcercamiento * radioAcercamiento;
@@ -33,11 +36,13 @@ public class BarcoMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float radioLuz = luzFaro.GetRadius();
+        radioLuz = radioLuz * radioLuz;
         Vector3 dir = luz.position - transform.position;
         dir.y = 0;
         if (ultimaPosicionLuz == luz.position)
         {
-            if (!continuar && dir.sqrMagnitude < radioAcercamientoSqr)
+            if (!continuar && dir.sqrMagnitude - radioLuz < radioAcercamientoSqr)
                 continuar = true;
         }
         else
@@ -46,7 +51,7 @@ public class BarcoMovement : MonoBehaviour
             continuar = false;
         }
 
-        if (!continuar && dir.sqrMagnitude < radioDeteccionSqr)
+        if (!continuar && dir.sqrMagnitude - radioLuz < radioDeteccionSqr)
         {
             Quaternion rotation = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * velocidadRotacion * speedPercent);
