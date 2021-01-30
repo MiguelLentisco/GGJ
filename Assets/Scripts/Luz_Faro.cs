@@ -8,7 +8,7 @@ public class Luz_Faro : MonoBehaviour
     Vector3 newPosition;
     [SerializeField] Transform lighthousePos;
     float maxDistance;
-    [SerializeField] float speed = 5.0f;
+    [SerializeField] float speed = 10.0f;
     
     void Start()
     {
