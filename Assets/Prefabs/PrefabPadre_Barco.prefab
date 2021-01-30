@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4026602132566629712}
   - component: {fileID: 4026602132566629713}
   - component: {fileID: 4085409021089472811}
+  - component: {fileID: 2736244777161527856}
   m_Layer: 0
   m_Name: PrefabPadre_Barco
   m_TagString: Barco
@@ -95,6 +96,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightBoat: {fileID: 0}
   intervalSeconds: 0
+--- !u!114 &2736244777161527856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026602132566629718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e316b26a8e9c04c81ca7c19bfae143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8493945670815352570
 GameObject:
   m_ObjectHideFlags: 0
