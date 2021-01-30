@@ -26,7 +26,7 @@ public class BarcoLuz : MonoBehaviour
     [SerializeField]
     Color luzAzul;
 
-    ColorBarco colorBarco;
+    public ColorBarco colorBarco;
     bool apagado = false;
 
     private void Start()
