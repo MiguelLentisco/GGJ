@@ -32,7 +32,7 @@ public class shopManager : MonoBehaviour
         amountPowerUp[3] = GM.GetNumberPowerUps(PowerUp.VisionMap);
         amountPowerUp[4] = GM.GetNumberPowerUps(PowerUp.ShieldShip);
         for (int i = 0; i < costPowerUp.Length; i++)
-            textCostPowerUp[i].text = costPowerUp[i].ToString();
+            textCostPowerUp[i].text = "$" + costPowerUp[i].ToString();
 
     }
 
@@ -40,7 +40,7 @@ public class shopManager : MonoBehaviour
     void Update()
     {
         // Update all data
-        moneyText.text = savedMoney.ToString() + "€";
+        moneyText.text = "$" + savedMoney.ToString();
         for (int i = 0; i < amountPowerUp.Length; i++)
             textAmountPowerUp[i].text = amountPowerUp[i].ToString();
     }
