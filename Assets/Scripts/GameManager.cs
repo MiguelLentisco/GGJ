@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[System.Serializable]
+public enum PowerUp
+{
+    IncreaseLimit,
+    IncreaseLight,
+    SlowdownShips,
+    VisionMap,
+    ShieldShip,
+    NPOWERUPS
+};
+
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -25,6 +37,9 @@ public class GameManager : MonoBehaviour
     int nBarcosRestantes = 0;
     float dinero = 0.0f;
 
+    int[] powerUpsAvailable = new int[(int) PowerUp.NPOWERUPS];
+    
+
     private void Awake()
     {
         if (instance == null)
@@ -41,6 +56,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
+            powerUpsAvailable[i] = 0;
+
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
         AvanzaRonda();
@@ -110,5 +128,10 @@ public class GameManager : MonoBehaviour
         ++rondaActual;
         nBarcosRestantes = rondaActual * (rondaActual + 1) / 2;
         SpawnBoats();
+    }
+
+    void AddPowerUp(PowerUp powerup, int cantidad)
+    {
+        powerUpsAvailable[(int) powerup] += cantidad;
     }
 }

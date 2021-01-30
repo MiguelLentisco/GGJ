@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BarcoExplosion : MonoBehaviour
 {
-    Rigidbody rb;
+    [SerializeField]
+    GameObject boom;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -17,11 +17,13 @@ public class BarcoExplosion : MonoBehaviour
     {
         
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Barco"))
         {
             GameManager.instance.BarcoPerdido(1);
+            Instantiate(boom, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
