@@ -20,11 +20,14 @@ public class BarcoExplosion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Barco"))
+        if (collision.gameObject.CompareTag("Barco") || collision.gameObject.CompareTag("Obstaculo"))
         {
             GameManager.instance.BarcoPerdido(1);
             Instantiate(boom, transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
+            if (collision.gameObject.CompareTag("Barco"))
+            {
+                Destroy(collision.gameObject);
+            }     
             Destroy(this.gameObject);
         }
     }
