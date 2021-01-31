@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     GameObject gameHUD;
     [SerializeField]
+    GameObject tutorialUI;
+    [SerializeField]
     AudioMixer audioMixer;
 
     private void Awake()
@@ -41,7 +43,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
+        tutorialUI.SetActive(false);
     }
 
     private void initializeDictionary()
@@ -54,6 +56,16 @@ public class LevelManager : MonoBehaviour
     {
         if (canPause && Input.GetKeyDown(KeyCode.Escape))
             stopPlaying();
+
+        if (tutorialUI.activeSelf && Input.GetMouseButtonDown(0)) { 
+            loadLevel("Scene2");
+            tutorialUI.SetActive(false);
+        }
+    }
+
+    public void loadTutorial(string pLevelName)
+    {
+        tutorialUI.SetActive(true);
     }
 
     public void loadLevel(string pLevelName)

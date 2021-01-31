@@ -1100,6 +1100,10 @@ PrefabInstance:
       propertyPath: audioMixer
       value: 
       objectReference: {fileID: 24100000, guid: 7ff0de006fa859e4a97584308a5366ae, type: 2}
+    - target: {fileID: 915045730278713948, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: tutorialUI
+      value: 
+      objectReference: {fileID: 915045729685631827}
     - target: {fileID: 915045730278713950, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -1294,6 +1298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+--- !u!1 &915045729685631827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 688642656795845474, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+  m_PrefabInstance: {fileID: 915045729685631826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8034775697944007374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1463,7 +1472,7 @@ PrefabInstance:
       objectReference: {fileID: 1839618318}
     - target: {fileID: 8034775696924981235, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: loadLevel
+      value: loadTutorial
       objectReference: {fileID: 0}
     - target: {fileID: 8034775696924981235, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
