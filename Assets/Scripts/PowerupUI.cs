@@ -67,7 +67,7 @@ public class PowerupUI : MonoBehaviour
                 GameManager.instance.SlowdownPowerUp();
                 break;
             case PowerUp.VisionMap:
-                GameManager.instance.ShowMapPowerUp();
+                GameManager.instance.ClearFogPowerUp();
                 break;
         }
 
