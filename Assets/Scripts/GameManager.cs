@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     Lighthouse lighthouse = null;
     LuzFaro luzFaro = null;
     [SerializeField]
+    GameObject creditos = null;
+    [SerializeField]
     GameObject shop = null;
     [SerializeField]
     float percentLoose = 0.3f;
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     LevelManager levelManager;
     LightChange luzGlobal = null;
-    GameObject creditos = null;
+    
 
     int rondaActual = 0;
     int nBarcosRestantes = 0;
@@ -98,7 +100,6 @@ public class GameManager : MonoBehaviour
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         luzGlobal = GameObject.FindGameObjectWithTag("LuzGlobal").GetComponent<LightChange>();
-        creditos = GameObject.FindGameObjectWithTag("Creditos");
         levelManager.updateRounds();
         levelManager.updateMoney(dinero);
         IniciaRonda();
@@ -166,13 +167,15 @@ public class GameManager : MonoBehaviour
     {
         nBarcosRestantes = Mathf.Max(0, nBarcosRestantes - nBarcosPerdidos);
         if (nBarcosPerdidos == 0)
-            PlayerPierde();
+            StartCoroutine(PlayerPierde());
     }
 
-    void PlayerPierde()
+    IEnumerator PlayerPierde()
     {
         Time.timeScale = 0;
         creditos.SetActive(true);
+        yield return new WaitForSeconds(10.0f);
+        Application.Quit();
     }
 
     public void IniciaRonda()

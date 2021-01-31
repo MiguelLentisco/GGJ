@@ -25,23 +25,31 @@ public class shopManager : MonoBehaviour
     void Start()
     {
         // Set saved Data
+        
+    }
+
+    private void OnEnable()
+    {
+
         GM = GameManager.instance;
         LM = FindObjectOfType<LevelManager>();
         LM.setCanPause(false);
         LM.setCanHUD(false);
+
+        for (int i = 0; i < costPowerUp.Length; i++)
+            textCostPowerUp[i].text = "$" + costPowerUp[i].ToString();
+
         savedMoney = GM.dinero;
         amountPowerUp[0] = GM.GetNumberPowerUps(PowerUp.IncreaseLimit);
         amountPowerUp[1] = GM.GetNumberPowerUps(PowerUp.IncreaseLight);
         amountPowerUp[2] = GM.GetNumberPowerUps(PowerUp.SlowdownShips);
         amountPowerUp[3] = GM.GetNumberPowerUps(PowerUp.VisionMap);
-        for (int i = 0; i < costPowerUp.Length; i++)
-            textCostPowerUp[i].text = "$" + costPowerUp[i].ToString();
-
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         // Update all data
         moneyText.text = "$" + savedMoney.ToString();
         for (int i = 0; i < amountPowerUp.Length; i++)

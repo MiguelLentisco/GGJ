@@ -18,6 +18,7 @@ TagManager:
   - LevelManager
   - LuzGlobal
   - ShopMenu
+  - Creditos
   layers:
   - Default
   - TransparentFX
