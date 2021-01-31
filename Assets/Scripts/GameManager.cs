@@ -54,8 +54,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     float durationIncreaseIntensity = 10.0f;
 
-    [SerializeField]
-    Text moneyText;
     LevelManager levelManager;
     LightChange luzGlobal = null;
 
