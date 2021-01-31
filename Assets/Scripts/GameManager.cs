@@ -42,10 +42,18 @@ public class GameManager : MonoBehaviour
     float slowdownBoatsPercent = 0.5f;
     [SerializeField]
     float durationSlowdownBoats = 10.0f;
+
+    [SerializeField]
+    float increaseIntensity = 1.15f;
+    [SerializeField]
+    float timeIntensity = 1.0f;
+    [SerializeField]
+    float durationIncreaseIntensity = 10.0f;
+
     [SerializeField]
     Text moneyText;
-
     LevelManager levelManager;
+    LightChange luzGlobal = null;
 
     int rondaActual = 0;
     int nBarcosRestantes = 0;
@@ -84,6 +92,7 @@ public class GameManager : MonoBehaviour
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         moneyText.text = dinero.ToString() + "$";
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        luzGlobal = GameObject.FindGameObjectWithTag("LuzGlobal").GetComponent<LightChange>();
         IniciaRonda();
     }
 
@@ -136,6 +145,13 @@ public class GameManager : MonoBehaviour
         yield return luzFaro.ScaleRange(increaseLightRadius, timeIncreaseLightRadius);
         yield return new WaitForSeconds(durationIncreaseLightRadius);
         yield return luzFaro.ScaleRange(1.0f / increaseLightRadius, timeIncreaseLightRadius);
+    }
+
+    IEnumerator UsePUClearFog()
+    {
+        yield return luzGlobal.changeIntensity(increaseIntensity, timeIntensity);
+        yield return new WaitForSeconds(durationIncreaseIntensity);
+        yield return luzGlobal.changeIntensity(1.0f / increaseIntensity, timeIntensity);
     }
 
     public void BarcoPerdido(int nBarcosPerdidos)
@@ -195,9 +211,9 @@ public class GameManager : MonoBehaviour
         return rondaActual;
     }
 
-    public void ShowMapPowerUp()
+    public void ClearFogPowerUp()
     {
-
+        StartCoroutine(UsePUClearFog());
     }
 
     public void SlowdownPowerUp()
