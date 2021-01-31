@@ -73,9 +73,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
-            StartPUSlowdownBoats();
+            SlowdownPowerUp();
         else if (Input.GetKeyDown(KeyCode.D))
-            StartPUIncreaseLighthouseRaidus();
+            IncreaseRangePowerUp();
         else if (Input.GetKeyDown(KeyCode.W))
             SpawnBoats();
     }
@@ -85,11 +85,6 @@ public class GameManager : MonoBehaviour
         boatsSpawner.SpawnEnemiesInRound(rondaActual);
     }
 
-    public void StartPUIncreaseLighthouseRaidus()
-    {
-        StartCoroutine(UsePUIncreaseLighthouseRadius());
-    }
-
     IEnumerator UsePUIncreaseLighthouseRadius()
     {
         yield return lighthouse.ScaleUpOverTime(increaseRadiusLimit, timeIncreaseRadiusLimit);
@@ -97,10 +92,6 @@ public class GameManager : MonoBehaviour
         yield return lighthouse.ScaleDownOverTime(timeIncreaseRadiusLimit);
     }
 
-    public void StartPUSlowdownBoats()
-    {
-        StartCoroutine(UsePUSlowdownBoats());
-    }
 
     IEnumerator UsePUSlowdownBoats()
     {
@@ -159,7 +150,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseRangePowerUp()
     {
-
+        StartCoroutine(UsePUIncreaseLighthouseRadius());
     }
 
     public void IncreaseLightPowerUp()
@@ -174,6 +165,6 @@ public class GameManager : MonoBehaviour
 
     public void SlowdownPowerUp()
     {
-
+        StartCoroutine(UsePUSlowdownBoats());
     }
 }
