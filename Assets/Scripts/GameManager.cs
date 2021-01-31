@@ -167,17 +167,18 @@ public class GameManager : MonoBehaviour
     public void BarcoPerdido(int nBarcosPerdidos)
     {
         nBarcosRestantes = Mathf.Max(0, nBarcosRestantes - nBarcosPerdidos);
-        if (rondaActual != 1 && nBarcosRestantes == 0)
+        if (!muerto && rondaActual != 1 && nBarcosRestantes == 0)
             PlayerPierde();
     }
 
     void PlayerPierde()
     {
         muerto = true;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         shop.SetActive(false);
         levelManager.ActiveHUD(false);
         creditos.SetActive(true);
+        StartCoroutine(creditos.GetComponent<GameOverScript>().showCredits());
     }
 
     public void IniciaRonda()

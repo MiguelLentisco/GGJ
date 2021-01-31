@@ -19,24 +19,18 @@ public class GameOverScript : MonoBehaviour
 
     void Update()
     {
-        if (!finalizar && Input.GetMouseButtonDown(0))
-        {
-            GameOverUI.SetActive(false);
-            CreditsUI.SetActive(true);
-            StartCoroutine(waitThenFinalizar());
-        }
-
-        if (finalizar && Input.GetMouseButtonDown(0))
-        {
-            GameOverUI.SetActive(false);
-            CreditsUI.SetActive(false);
-            Application.Quit();
-        }
     }
 
-    IEnumerator waitThenFinalizar()
+
+    public IEnumerator showCredits()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4.0f);
+        GameOverUI.SetActive(false);
+        CreditsUI.SetActive(true);
+        yield return new WaitForSeconds(6.0f);
+        GameOverUI.SetActive(false);
+        CreditsUI.SetActive(false);
+        Application.Quit();
         finalizar = true;
     }
 }

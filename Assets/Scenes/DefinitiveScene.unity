@@ -2553,6 +2553,10 @@ PrefabInstance:
       propertyPath: creditos
       value: 
       objectReference: {fileID: 599812467}
+    - target: {fileID: 5057093896832997175, guid: d17d845f9f754694982c8882c8b216a0, type: 3}
+      propertyPath: increaseIntensity
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17d845f9f754694982c8882c8b216a0, type: 3}
 --- !u!1 &1556439541
