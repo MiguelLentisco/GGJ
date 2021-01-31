@@ -64,6 +64,7 @@ public class LevelManager : MonoBehaviour
         if (tutorialUI.activeSelf && Input.GetMouseButtonDown(0)) { 
             loadLevel("Scene2");
             tutorialUI.SetActive(false);
+            GameManager.instance.IniciarJuego();
         }
     }
 

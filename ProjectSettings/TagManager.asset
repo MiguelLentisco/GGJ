@@ -16,6 +16,7 @@ TagManager:
   - PuebloAmarillo
   - PuebloVerde
   - LevelManager
+  - LuzGlobal
   layers:
   - Default
   - TransparentFX
