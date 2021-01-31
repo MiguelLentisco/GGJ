@@ -20,6 +20,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     GameObject pauseMenuUI;
     [SerializeField]
+    GameObject gameHUD;
+    [SerializeField]
     AudioMixer audioMixer;
 
     private void Awake()
@@ -39,14 +41,13 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        // Cargar el primer nivel (el main menu)
-        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-        // actualNivel = "MainMenu"
+
     }
 
     private void initializeDictionary()
     {
         levelDictionary.Add("Scene1", "Menu");
+        levelDictionary.Add("Scene2", "XabiScene");
     }
 
     private void Update()
@@ -57,9 +58,8 @@ public class LevelManager : MonoBehaviour
 
     public void loadLevel(string pLevelName)
     {
-        StartCoroutine(loadTransitionAnimation());
+        StartCoroutine(loadTransitionAnimation(pLevelName));
         //SceneManager.UnloadSceneAsync(actualLevel);
-        SceneManager.LoadScene(pLevelName);
         //actualLevel = pLevelName;
     }
 
@@ -98,19 +98,23 @@ public class LevelManager : MonoBehaviour
     public void setCanPause(bool pausable)
     {
         canPause = pausable;
+        pauseMenuUI.SetActive(pausable);
     }
 
     public void setCanHUD(bool pausable)
     {
         canHUD = pausable;
+        gameHUD.SetActive(pausable);
     }
 
-    IEnumerator loadTransitionAnimation()
+    IEnumerator loadTransitionAnimation(string pLevelName)
     {
         // Cargar animación
         transition.SetTrigger("Start");
 
         // Esperar un poco
         yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(levelDictionary[pLevelName]);
     }
 }

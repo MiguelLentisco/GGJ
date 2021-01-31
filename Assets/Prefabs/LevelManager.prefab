@@ -356,9 +356,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPause: 0
+  canHUD: 0
   transition: {fileID: 915045730308374823}
-  pauseMenuUI: {fileID: 0}
-  audioMixer: {fileID: 0}
+  pauseMenuUI: {fileID: 9045700567991703592}
+  gameHUD: {fileID: 6705090717520188349}
+  audioMixer: {fileID: 24100000, guid: 7ff0de006fa859e4a97584308a5366ae, type: 2}
 --- !u!1 &915045730308374818
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &915045730308374819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1349,7 +1351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4821477335011600540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1357,7 +1359,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9045700567991703592}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
