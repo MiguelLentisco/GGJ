@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
     GameObject pauseMenuUI;
     [SerializeField]
     GameObject gameHUD;
+    [SerializeField]
+    GameObject tutorialUI;
     [SerializeField]
     AudioMixer audioMixer;
     [SerializeField]
@@ -44,19 +46,30 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        tutorialUI.SetActive(false);
         rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
 
     private void initializeDictionary()
     {
         levelDictionary.Add("Scene1", "Menu");
-        levelDictionary.Add("Scene2", "XabiScene");
+        levelDictionary.Add("Scene2", "DefinitiveScene");
     }
 
     private void Update()
     {
         if (canPause && Input.GetKeyDown(KeyCode.Escape))
             stopPlaying();
+
+        if (tutorialUI.activeSelf && Input.GetMouseButtonDown(0)) { 
+            loadLevel("Scene2");
+            tutorialUI.SetActive(false);
+        }
+    }
+
+    public void loadTutorial(string pLevelName)
+    {
+        tutorialUI.SetActive(true);
     }
 
     public void loadLevel(string pLevelName)
@@ -104,11 +117,6 @@ public class LevelManager : MonoBehaviour
         pauseMenuUI.SetActive(pausable);
     }
 
-    public void updateRounds()
-    {
-        rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
-    }
-
     public void setCanHUD(bool pausable)
     {
         canHUD = pausable;
@@ -124,5 +132,10 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelDictionary[pLevelName]);
+    }
+
+    public void updateRounds()
+    {
+        rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
 }
