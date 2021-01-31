@@ -10,18 +10,25 @@ public class BoatSoundManager : MonoBehaviour
 
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip winsound;
-    void Start()
+    void Awake()
     {
-        source = transform.GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     public void PlayExplosion()
     {
         source.PlayOneShot(explosion);
+
     }
     
     public void PlayWinpoint()
     {
         source.PlayOneShot(winsound);
+    }
+
+    public void Update()
+    {
+        if (!source.isPlaying)
+            Destroy(this.gameObject);
     }
 }
