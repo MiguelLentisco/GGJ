@@ -1096,10 +1096,30 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 915045729701264914, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 124
+      objectReference: {fileID: 0}
+    - target: {fileID: 915045729701264914, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 243.33533
+      objectReference: {fileID: 0}
+    - target: {fileID: 915045729701264914, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 91.40204
+      objectReference: {fileID: 0}
+    - target: {fileID: 915045729701264914, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000048078
+      objectReference: {fileID: 0}
     - target: {fileID: 915045729701264915, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1557c973bfd2aac488fe7fc2710e394e, type: 3}
+      objectReference: {fileID: 21300000, guid: e78131cdf57ba4746aadb5466b1760f6, type: 3}
+    - target: {fileID: 915045729701264915, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 915045730278713948, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: audioMixer
       value: 
@@ -1220,6 +1240,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 991b4b5dc96bc584fa659db5e919a71c, type: 3}
+    - target: {fileID: 5516720211646697897, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c4fc7b22334900641a3987e9ea67449c, type: 3}
     - target: {fileID: 5723098341924005699, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
@@ -1255,6 +1279,10 @@ PrefabInstance:
     - target: {fileID: 5723098341924005699, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726662598297038295, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6067536457473873008, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_audioClip
