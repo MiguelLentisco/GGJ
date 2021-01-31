@@ -10,9 +10,9 @@ public class BoatSoundManager : MonoBehaviour
 
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip winsound;
-    void Start()
+    void Awake()
     {
-        source = transform.GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     public void PlayExplosion()
