@@ -24,10 +24,6 @@ public class BarcoExplosion : MonoBehaviour
         {
             GameManager.instance.BarcoPerdido(1);
             Instantiate(boom, transform.position, Quaternion.identity);
-            if (collision.gameObject.CompareTag("Barco"))
-            {
-                Destroy(collision.gameObject);
-            }     
             Destroy(this.gameObject);
         }
     }
