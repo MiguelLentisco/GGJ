@@ -19,14 +19,12 @@ public class PauseScript : MonoBehaviour
 
     public void stopPlaying()
     {
-        Debug.Log("stop");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         canPause = false;
     }
     public void resumePlaying()
     {
-        Debug.Log("resumePlaying");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         canPause = true;

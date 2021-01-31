@@ -2358,12 +2358,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908497297294625817, guid: c1c03e2a925fc6947b51c79169bbd4ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908497297294625817, guid: c1c03e2a925fc6947b51c79169bbd4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1477277730}
     - target: {fileID: 4908497297294625817, guid: c1c03e2a925fc6947b51c79169bbd4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: resumePlaying
+      value: quitPlaying
       objectReference: {fileID: 0}
     - target: {fileID: 4908497297294625817, guid: c1c03e2a925fc6947b51c79169bbd4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
