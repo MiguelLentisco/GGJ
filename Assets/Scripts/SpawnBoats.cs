@@ -25,6 +25,7 @@ public class SpawnBoats : MonoBehaviour
     Barco[] tiposBarcos = null;
     [SerializeField]
     SpawnPoint[] puntosSpawn = null;
+    Vector3 faro;
 
     [SerializeField]
     float minTimeToSpawn = 0.0f;
@@ -34,6 +35,7 @@ public class SpawnBoats : MonoBehaviour
     void Start()
     {
         System.Array.Sort(tiposBarcos, delegate (Barco x, Barco y) { return x.proporcionSpawn.CompareTo(y.proporcionSpawn); });
+        faro = GameObject.FindGameObjectWithTag("Faro").transform.position;
     }
 
     int NumberBoatsToSpawn(int round)
@@ -69,7 +71,8 @@ public class SpawnBoats : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(minTimeToSpawn, maxTimeToSpawn));
         pos.x = Random.Range(pos.x - puntoSpawn.rX, pos.x + puntoSpawn.rX);
         pos.z = Random.Range(pos.z - puntoSpawn.rZ, pos.z + puntoSpawn.rZ);
-        Instantiate(prefabBarco, pos, Quaternion.identity);
+        GameObject bote = Instantiate(prefabBarco, pos, Quaternion.identity);
+        bote.transform.LookAt(faro);
     }
 
     public void SpawnEnemiesInRound(int round)
