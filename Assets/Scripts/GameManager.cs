@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     void AcabarRonda()
     {
+        Debug.Log("se terminó el juego");
         jugando = false;
         
     }
@@ -166,7 +167,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void IniciaRonda()
+    public void IniciaRonda()
     {
         ++rondaActual;
         nBarcosRestantes = rondaActual * (rondaActual + 1) / 2;

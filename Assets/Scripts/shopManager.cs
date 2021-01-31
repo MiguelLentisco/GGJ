@@ -71,7 +71,8 @@ public class shopManager : MonoBehaviour
     {
         sendDataToGameManager();
         // Llamar a LevelManager para cambiar de nivel
-        LM.loadLevel("string");
+        GM.IniciaRonda();
+        this.gameObject.SetActive(false);
     }
 
     IEnumerator warningForSeconds(int sec)
