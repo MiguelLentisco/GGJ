@@ -18,10 +18,17 @@ public class BoatSoundManager : MonoBehaviour
     public void PlayExplosion()
     {
         source.PlayOneShot(explosion);
+
     }
     
     public void PlayWinpoint()
     {
         source.PlayOneShot(winsound);
+    }
+
+    public void Update()
+    {
+        if (!source.isPlaying)
+            Destroy(this.gameObject);
     }
 }
