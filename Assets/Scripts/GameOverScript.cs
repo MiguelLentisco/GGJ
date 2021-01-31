@@ -30,7 +30,7 @@ public class GameOverScript : MonoBehaviour
         {
             GameOverUI.SetActive(false);
             CreditsUI.SetActive(false);
-            LevelManager.instance.loadLevel("Scene1");
+            Application.Quit();
         }
     }
 

@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     int nBarcosRestantes = 0;
     public float dinero = 0.0f;
     public bool spawnAcabado = false;
+    bool muerto = false;
 
     int[] powerUpsAvailable = new int[(int) PowerUp.NPOWERUPS];
 
@@ -108,7 +109,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnAcabado) 
+        if (spawnAcabado && !muerto) 
         {
             if (GameObject.FindGameObjectWithTag("Barco") == null)
                 AcabarRonda();
@@ -166,18 +167,17 @@ public class GameManager : MonoBehaviour
     public void BarcoPerdido(int nBarcosPerdidos)
     {
         nBarcosRestantes = Mathf.Max(0, nBarcosRestantes - nBarcosPerdidos);
-        if (rondaActual != 0 && nBarcosRestantes == 0)
-            StartCoroutine(PlayerPierde());
+        if (rondaActual != 1 && nBarcosRestantes == 0)
+            PlayerPierde();
     }
 
-    IEnumerator PlayerPierde()
+    void PlayerPierde()
     {
+        muerto = true;
         Time.timeScale = 0;
         shop.SetActive(false);
         levelManager.ActiveHUD(false);
         creditos.SetActive(true);
-        yield return new WaitForSeconds(10.0f);
-        Application.Quit();
     }
 
     public void IniciaRonda()
@@ -186,7 +186,6 @@ public class GameManager : MonoBehaviour
         levelManager.ActiveHUD(true);
         ++rondaActual;
         nBarcosRestantes = (int) Mathf.Round(percentLoose * (rondaActual * (rondaActual + 1) / 2));
-        Debug.Log(nBarcosRestantes);
         SpawnBoats();
         levelManager.updateRounds();
     }
