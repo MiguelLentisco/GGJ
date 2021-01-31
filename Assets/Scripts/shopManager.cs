@@ -40,9 +40,9 @@ public class shopManager : MonoBehaviour
             textCostPowerUp[i].text = "$" + costPowerUp[i].ToString();
 
         savedMoney = GM.dinero;
-        amountPowerUp[0] = GM.GetNumberPowerUps(PowerUp.IncreaseLimit);
+        amountPowerUp[0] = GM.GetNumberPowerUps(PowerUp.SlowdownShips);
         amountPowerUp[1] = GM.GetNumberPowerUps(PowerUp.IncreaseLight);
-        amountPowerUp[2] = GM.GetNumberPowerUps(PowerUp.SlowdownShips);
+        amountPowerUp[2] = GM.GetNumberPowerUps(PowerUp.IncreaseLimit);
         amountPowerUp[3] = GM.GetNumberPowerUps(PowerUp.VisionMap);
     }
 
@@ -92,9 +92,9 @@ public class shopManager : MonoBehaviour
     void sendDataToGameManager()
     {
         GM.dinero = savedMoney;
-        GM.AddPowerUp(PowerUp.IncreaseLimit, amountPowerUp[0]);
+        GM.AddPowerUp(PowerUp.SlowdownShips, amountPowerUp[0]);
         GM.AddPowerUp(PowerUp.IncreaseLight, amountPowerUp[1]);
-        GM.AddPowerUp(PowerUp.SlowdownShips, amountPowerUp[2]);
+        GM.AddPowerUp(PowerUp.IncreaseLimit, amountPowerUp[2]);
         GM.AddPowerUp(PowerUp.VisionMap, amountPowerUp[3]);
     }
 
