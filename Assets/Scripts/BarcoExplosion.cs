@@ -7,6 +7,9 @@ public class BarcoExplosion : MonoBehaviour
     [SerializeField]
     GameObject boom;
 
+    [SerializeField]
+    GameObject sounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class BarcoExplosion : MonoBehaviour
         {
             GameManager.instance.BarcoPerdido(1);
             Instantiate(boom, transform.position, Quaternion.identity);
+            GameObject newSound = Instantiate(sounds, transform.position, Quaternion.identity);
+            newSound.GetComponent<BoatSoundManager>().PlayExplosion();
             Destroy(this.gameObject);
         }
     }
