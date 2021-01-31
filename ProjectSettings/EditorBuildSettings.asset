@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 0052100c256845d40b0d7555833d5378
+  - enabled: 1
+    path: Assets/Scenes/XabiScene.unity
+    guid: 6881128b6834a6a4a9e2837c48bc3271
   m_configObjects: {}
