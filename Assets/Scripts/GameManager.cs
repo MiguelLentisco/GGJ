@@ -173,6 +173,7 @@ public class GameManager : MonoBehaviour
     IEnumerator PlayerPierde()
     {
         Time.timeScale = 0;
+        shop.SetActive(false);
         levelManager.ActiveHUD(false);
         creditos.SetActive(true);
         yield return new WaitForSeconds(10.0f);
