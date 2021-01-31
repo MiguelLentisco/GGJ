@@ -6,7 +6,8 @@ public enum ColorBarco
     ROJO,
     VERDE,
     AMARILLO,
-    AZUL
+    AZUL,
+    SINCOLOR
 }
 
 
@@ -26,13 +27,18 @@ public class BarcoLuz : MonoBehaviour
     [SerializeField]
     Color luzAzul;
 
-    public ColorBarco colorBarco;
+    [SerializeField]
+    public ColorBarco colorBarco = ColorBarco.SINCOLOR;
     bool apagado = false;
 
     private void Start()
     {
-        System.Array tiposLuz = System.Enum.GetValues(typeof(ColorBarco));
-        colorBarco = (ColorBarco) tiposLuz.GetValue(Random.Range(0, tiposLuz.Length));
+        if (colorBarco == ColorBarco.SINCOLOR)
+        {
+            System.Array tiposLuz = System.Enum.GetValues(typeof(ColorBarco));
+            colorBarco = (ColorBarco)tiposLuz.GetValue(Random.Range(0, tiposLuz.Length - 1));
+        }
+        
         lightBoat = transform.Find("Light").GetComponent<Light>();
         lightBoat.color = LuzToColor(colorBarco);
     }
