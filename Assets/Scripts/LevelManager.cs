@@ -145,4 +145,9 @@ public class LevelManager : MonoBehaviour
     {
         rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
+
+    public void updateMoney(float dinero)
+    {
+        gameHUD.transform.Find("Money").GetComponent<Text>().text = dinero.ToString() + "$";
+    }
 }

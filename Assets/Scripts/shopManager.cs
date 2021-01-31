@@ -53,7 +53,7 @@ public class shopManager : MonoBehaviour
         if(savedMoney >= costPowerUp[powerup]) // Comprar powerup
         {
             savedMoney -= costPowerUp[powerup];
-            amountPowerUp[powerup]++;
+            amountPowerUp[powerup] = amountPowerUp[powerup] + 1;
         } else // Avisar de que no hay dinero suficiente
         {
             //StartCoroutine(warningForSeconds(4));
@@ -89,4 +89,6 @@ public class shopManager : MonoBehaviour
         GM.AddPowerUp(PowerUp.SlowdownShips, amountPowerUp[2]);
         GM.AddPowerUp(PowerUp.VisionMap, amountPowerUp[3]);
     }
+
+    
 }
