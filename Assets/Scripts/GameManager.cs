@@ -23,8 +23,10 @@ public class GameManager : MonoBehaviour
     SpawnBoats boatsSpawner = null;
     Lighthouse lighthouse = null;
     LuzFaro luzFaro = null;
-
     [SerializeField]
+    GameObject shop = null;
+
+   [SerializeField]
     float increaseRadiusLimit = 1.5f;
     [SerializeField]
     float timeIncreaseRadiusLimit = 2.5f;
@@ -96,7 +98,6 @@ public class GameManager : MonoBehaviour
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         luzGlobal = GameObject.FindGameObjectWithTag("LuzGlobal").GetComponent<LightChange>();
         levelManager.updateRounds();
-        levelManager.ActiveHUD();
         IniciaRonda();
     }
 
@@ -112,8 +113,9 @@ public class GameManager : MonoBehaviour
 
     void AcabarRonda()
     {
-        Debug.Log("Ronda Acabada");
         spawnAcabado = false;
+        levelManager.ActiveHUD(false);
+        shop.SetActive(true);
     }
 
     void SpawnBoats()
@@ -171,6 +173,7 @@ public class GameManager : MonoBehaviour
 
     public void IniciaRonda()
     {
+        levelManager.ActiveHUD(true);
         ++rondaActual;
         nBarcosRestantes = rondaActual * (rondaActual + 1) / 2;
         SpawnBoats();
@@ -180,7 +183,7 @@ public class GameManager : MonoBehaviour
 
     public void AddPowerUp(PowerUp powerup, int cantidad)
     {
-        powerUpsAvailable[(int) powerup] += cantidad;
+        powerUpsAvailable[(int) powerup] = cantidad;
     }
 
     public int GetNumberPowerUps(PowerUp powerup)

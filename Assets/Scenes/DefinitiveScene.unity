@@ -1297,6 +1297,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2822445733980489716, guid: d14c468720da753418b6209a5d85bd45, type: 3}
+      propertyPath: m_TagString
+      value: ShopMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2822445733980489719, guid: d14c468720da753418b6209a5d85bd45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1520,12 +1524,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3768331190864309440, guid: d14c468720da753418b6209a5d85bd45, type: 3}
   m_PrefabInstance: {fileID: 637373731}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 637373733}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e803efe0a17050745935f85bd5dc9409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &637373733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2822445733980489716, guid: d14c468720da753418b6209a5d85bd45, type: 3}
+  m_PrefabInstance: {fileID: 637373731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642993177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2549,10 @@ PrefabInstance:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 269302484}
+    - target: {fileID: 5057093896832997175, guid: d17d845f9f754694982c8882c8b216a0, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 637373733}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17d845f9f754694982c8882c8b216a0, type: 3}
 --- !u!1 &1556439541

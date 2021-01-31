@@ -136,9 +136,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(levelDictionary[pLevelName]);    
     }
 
-    public void ActiveHUD()
+    public void ActiveHUD(bool active)
     {
-        gameHUD.SetActive(true);
+        gameHUD.SetActive(active);
     }
 
     public void updateRounds()
