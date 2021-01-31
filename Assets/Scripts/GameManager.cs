@@ -166,13 +166,14 @@ public class GameManager : MonoBehaviour
     public void BarcoPerdido(int nBarcosPerdidos)
     {
         nBarcosRestantes = Mathf.Max(0, nBarcosRestantes - nBarcosPerdidos);
-        if (nBarcosPerdidos == 0)
+        if (rondaActual != 0 && nBarcosRestantes == 0)
             StartCoroutine(PlayerPierde());
     }
 
     IEnumerator PlayerPierde()
     {
         Time.timeScale = 0;
+        levelManager.ActiveHUD(false);
         creditos.SetActive(true);
         yield return new WaitForSeconds(10.0f);
         Application.Quit();
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
         levelManager.ActiveHUD(true);
         ++rondaActual;
         nBarcosRestantes = (int) Mathf.Round(percentLoose * (rondaActual * (rondaActual + 1) / 2));
+        Debug.Log(nBarcosRestantes);
         SpawnBoats();
         levelManager.updateRounds();
     }
