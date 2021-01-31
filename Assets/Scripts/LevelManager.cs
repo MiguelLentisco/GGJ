@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class LevelManager : MonoBehaviour
     GameObject tutorialUI;
     [SerializeField]
     AudioMixer audioMixer;
+    [SerializeField]
+    Text rounds;
 
     private void Awake()
     {
@@ -44,12 +47,13 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         tutorialUI.SetActive(false);
+        rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
 
     private void initializeDictionary()
     {
         levelDictionary.Add("Scene1", "Menu");
-        levelDictionary.Add("Scene2", "XabiScene");
+        levelDictionary.Add("Scene2", "DefinitiveScene");
     }
 
     private void Update()
@@ -128,5 +132,10 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelDictionary[pLevelName]);
+    }
+
+    public void updateRounds()
+    {
+        rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
 }
