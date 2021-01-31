@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
 
         for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
-            powerUpsAvailable[i] = 0;
+            powerUpsAvailable[i] = 1;
     }
 
     // Start is called before the first frame update
@@ -208,11 +208,13 @@ public class GameManager : MonoBehaviour
     public void IncreaseRangePowerUp()
     {
         StartCoroutine(UsePUIncreaseLighthouseRadius());
+        --powerUpsAvailable[(int) PowerUp.IncreaseLimit];
     }
 
     public void IncreaseLightPowerUp()
     {
         StartCoroutine(UsePUIncreaseLightRadius());
+        --powerUpsAvailable[(int)PowerUp.IncreaseLight];
     }
 
     public int GetRounds()
@@ -223,10 +225,12 @@ public class GameManager : MonoBehaviour
     public void ClearFogPowerUp()
     {
         StartCoroutine(UsePUClearFog());
+        --powerUpsAvailable[(int)PowerUp.VisionMap];
     }
 
     public void SlowdownPowerUp()
     {
         StartCoroutine(UsePUSlowdownBoats());
+        --powerUpsAvailable[(int)PowerUp.SlowdownShips];
     }
 }

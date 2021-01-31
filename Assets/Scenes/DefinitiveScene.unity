@@ -825,7 +825,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5613867604693661769, guid: 605571c909173184eaa64ab8e53a8bcd, type: 3}
 --- !u!4 &589344938 stripped
@@ -1301,6 +1301,7 @@ GameObject:
   - component: {fileID: 664642691}
   - component: {fileID: 664642690}
   - component: {fileID: 664642689}
+  - component: {fileID: 664642692}
   m_Layer: 0
   m_Name: Group64795
   m_TagString: Obstaculo
@@ -1371,6 +1372,20 @@ Transform:
   m_Father: {fileID: 826530513}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &664642692
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664642688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4520100268574243052, guid: 2e47db54df9ad4b40a55b851d532cd4e, type: 3}
 --- !u!1 &802983705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,7 +1809,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1226723149311242300, guid: 2e47db54df9ad4b40a55b851d532cd4e, type: 3}
 --- !u!1 &1329959263
@@ -2053,7 +2068,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1226723149311242300, guid: 2e47db54df9ad4b40a55b851d532cd4e, type: 3}
 --- !u!1 &1399694345 stripped
@@ -2072,7 +2087,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5613867604693661769, guid: 605571c909173184eaa64ab8e53a8bcd, type: 3}
 --- !u!4 &1399694349 stripped
@@ -2096,7 +2111,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3531946766418785785, guid: 59526f30512ccf3428685b788e9b4b9b, type: 3}
 --- !u!4 &1408919777 stripped
@@ -2336,7 +2351,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7964362042874435361, guid: 2e47db54df9ad4b40a55b851d532cd4e, type: 3}
 --- !u!1 &1607009027
@@ -2433,7 +2448,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8677363741669916912, guid: 2e47db54df9ad4b40a55b851d532cd4e, type: 3}
 --- !u!1 &1649750472

@@ -32,6 +32,9 @@ public class PowerupUI : MonoBehaviour
         {
             DeactivateButton();
         }
+        else
+            GetComponent<Button>().interactable = true;
+
     }
 
     private void CalculateFillAmount()
