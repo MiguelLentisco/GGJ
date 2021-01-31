@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     float slowdownBoatsPercent = 0.5f;
     [SerializeField]
-    float timeSlowdownBoats = 10.0f;
+    float durationSlowdownBoats = 10.0f;
     [SerializeField]
     Text moneyText;
 
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     int rondaActual = 0;
     int nBarcosRestantes = 0;
     public float dinero = 0.0f;
+    bool jugando = false;
 
     int[] powerUpsAvailable = new int[(int) PowerUp.NPOWERUPS];
 
@@ -71,29 +72,40 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
-            powerUpsAvailable[i] = 0;
+            powerUpsAvailable[i] = 0;  
+    }
 
+    public void IniciarJuego()
+    {
+        jugando = false;
+        dinero = 0.0f;
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
         luzFaro = GameObject.FindGameObjectWithTag("Luz").GetComponent<LuzFaro>();
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         moneyText.text = dinero.ToString() + "$";
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        //AvanzaRonda();
+        IniciaRonda();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-            SlowdownPowerUp();
-        else if (Input.GetKeyDown(KeyCode.D))
-            IncreaseRangePowerUp();
-        else if (Input.GetKeyDown(KeyCode.W))
-            IncreaseLightPowerUp();
+        if (jugando) 
+        {
+            if (GameObject.FindGameObjectWithTag("Barco") == null)
+                AcabarRonda();
+        }
+    }
+
+    void AcabarRonda()
+    {
+        jugando = false;
+        
     }
 
     void SpawnBoats()
     {
+        jugando = true;
         boatsSpawner.SpawnEnemiesInRound(rondaActual);
     }
 
@@ -112,7 +124,7 @@ public class GameManager : MonoBehaviour
         {
             boat.GetComponent<BarcoMovement>().UpdateSpeedPercent(slowdownBoatsPercent);
         }
-        yield return new WaitForSeconds(timeSlowdownBoats);
+        yield return new WaitForSeconds(durationSlowdownBoats);
         foreach (GameObject boat in boats)
         {
             boat.GetComponent<BarcoMovement>().UpdateSpeedPercent(1.0f);
@@ -138,7 +150,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void AvanzaRonda()
+    void IniciaRonda()
     {
         ++rondaActual;
         nBarcosRestantes = rondaActual * (rondaActual + 1) / 2;
