@@ -27,9 +27,19 @@ public class LuzFaro : MonoBehaviour
         UpdateMaxDistance();
     }
 
-    public void ChangeDistance(float newDistance)
+    public IEnumerator ScaleRange(float percentIncrease, float time)
     {
-        maxDistance = newDistance;
+        float currentAngle = luz.spotAngle;
+        float currentInnerAngle = luz.innerSpotAngle;
+        float currentTime = 0.0f;
+
+        while (currentTime <= time)
+        {
+            luz.spotAngle = Mathf.Lerp(currentAngle, currentAngle * percentIncrease, currentTime / time);
+            luz.innerSpotAngle = Mathf.Lerp(currentInnerAngle, currentInnerAngle * percentIncrease, currentTime / time);
+            yield return null;
+            currentTime += Time.deltaTime;
+        }
     }
 
     public float GetRadius()

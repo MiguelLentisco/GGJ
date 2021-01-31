@@ -22,13 +22,21 @@ public class GameManager : MonoBehaviour
 
     SpawnBoats boatsSpawner = null;
     Lighthouse lighthouse = null;
+    LuzFaro luzFaro = null;
 
     [SerializeField]
-    float increaseRadiusLimit = 3.0f;
+    float increaseRadiusLimit = 1.5f;
     [SerializeField]
     float timeIncreaseRadiusLimit = 2.5f;
     [SerializeField]
     float durationIncreaseRadiusLimit = 10.0f;
+
+    [SerializeField]
+    float increaseLightRadius = 1.5f;
+    [SerializeField]
+    float timeIncreaseLightRadius = 2.5f;
+    [SerializeField]
+    float durationIncreaseLightRadius = 10.0f;
 
     [SerializeField]
     float slowdownBoatsPercent = 0.5f;
@@ -64,6 +72,7 @@ public class GameManager : MonoBehaviour
             powerUpsAvailable[i] = 0;
 
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
+        luzFaro = GameObject.FindGameObjectWithTag("Luz").GetComponent<LuzFaro>();
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         moneyText.text = dinero.ToString() + "$";
         //AvanzaRonda();
@@ -77,7 +86,7 @@ public class GameManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.D))
             IncreaseRangePowerUp();
         else if (Input.GetKeyDown(KeyCode.W))
-            SpawnBoats();
+            IncreaseLightPowerUp();
     }
 
     void SpawnBoats()
@@ -87,9 +96,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator UsePUIncreaseLighthouseRadius()
     {
-        yield return lighthouse.ScaleUpOverTime(increaseRadiusLimit, timeIncreaseRadiusLimit);
+        yield return lighthouse.ScaleOverTime(increaseRadiusLimit, timeIncreaseRadiusLimit);
         yield return new WaitForSeconds(durationIncreaseRadiusLimit);
-        yield return lighthouse.ScaleDownOverTime(timeIncreaseRadiusLimit);
+        yield return lighthouse.ScaleOverTime(1.0f / increaseRadiusLimit, timeIncreaseRadiusLimit);
     }
 
 
@@ -105,6 +114,13 @@ public class GameManager : MonoBehaviour
         {
             boat.GetComponent<BarcoMovement>().UpdateSpeedPercent(1.0f);
         }
+    }
+
+    IEnumerator UsePUIncreaseLightRadius()
+    {
+        yield return luzFaro.ScaleRange(increaseLightRadius, timeIncreaseLightRadius);
+        yield return new WaitForSeconds(durationIncreaseLightRadius);
+        yield return luzFaro.ScaleRange(1.0f / increaseLightRadius, timeIncreaseLightRadius);
     }
 
     public void BarcoPerdido(int nBarcosPerdidos)
@@ -155,7 +171,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseLightPowerUp()
     {
-
+        StartCoroutine(UsePUIncreaseLightRadius());
     }
 
     public void ShowMapPowerUp()
