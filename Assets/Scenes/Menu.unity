@@ -1084,6 +1084,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 688642656795845474, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 915045729701264914, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_LocalScale.y
       value: 4.5
@@ -1158,7 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 915045730308374818, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 921445989938889637, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_FontData.m_Font
@@ -1409,6 +1413,10 @@ PrefabInstance:
     - target: {fileID: 8034775696755964795, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034775696755964795, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8034775696821371414, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: m_FontData.m_FontSize

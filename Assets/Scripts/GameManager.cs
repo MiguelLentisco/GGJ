@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     int rondaActual = 0;
     int nBarcosRestantes = 0;
     public float dinero = 0.0f;
-    bool jugando = false;
+    public bool spawnAcabado = false;
 
     int[] powerUpsAvailable = new int[(int) PowerUp.NPOWERUPS];
 
@@ -72,20 +72,22 @@ public class GameManager : MonoBehaviour
         }
         else if (instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
+
+        for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
+            powerUpsAvailable[i] = 0;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
-            powerUpsAvailable[i] = 0;  
+        IniciarJuego();
     }
 
     public void IniciarJuego()
     {
-        jugando = false;
+        spawnAcabado = false;
         dinero = 0.0f;
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
         luzFaro = GameObject.FindGameObjectWithTag("Luz").GetComponent<LuzFaro>();
@@ -93,13 +95,15 @@ public class GameManager : MonoBehaviour
         moneyText.text = dinero.ToString() + "$";
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         luzGlobal = GameObject.FindGameObjectWithTag("LuzGlobal").GetComponent<LightChange>();
+        levelManager.updateRounds();
+        levelManager.ActiveHUD();
         IniciaRonda();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (jugando) 
+        if (spawnAcabado) 
         {
             if (GameObject.FindGameObjectWithTag("Barco") == null)
                 AcabarRonda();
@@ -108,14 +112,12 @@ public class GameManager : MonoBehaviour
 
     void AcabarRonda()
     {
-        Debug.Log("se terminó el juego");
-        jugando = false;
-        
+        Debug.Log("Ronda Acabada");
+        spawnAcabado = false;
     }
 
     void SpawnBoats()
     {
-        jugando = true;
         boatsSpawner.SpawnEnemiesInRound(rondaActual);
     }
 

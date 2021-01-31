@@ -62,6 +62,7 @@ public class SpawnBoats : MonoBehaviour
         Assert.IsTrue(nBoatsToSpawn <= tiposBarcos.Length);
         for (int i = 0; i < nBoatsToSpawn; ++i)
             yield return generateBoat(tiposBarcos[i].prefabBarco);
+        GameManager.instance.spawnAcabado = true;
     }
 
     IEnumerator generateBoat(GameObject prefabBarco)
