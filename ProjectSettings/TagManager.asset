@@ -17,6 +17,7 @@ TagManager:
   - PuebloVerde
   - LevelManager
   - LuzGlobal
+  - ShopMenu
   layers:
   - Default
   - TransparentFX

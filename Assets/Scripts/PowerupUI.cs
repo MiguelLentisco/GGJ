@@ -19,22 +19,22 @@ public class PowerupUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        amount = GameManager.instance.GetNumberPowerUps(kind);
         image = GetComponent<Image>();
-
-        numberOfPowerUps.text = amount.ToString();
-
-        if (amount == 0)
-        {
-            DeactivateButton();
-        }
-
         GetPowerUpSeconds();
     }
 
     private void Update()
     {
         CalculateFillAmount();
+        amount = GameManager.instance.GetNumberPowerUps(kind);
+        numberOfPowerUps.text = amount.ToString();
+        if (amount == 0)
+        {
+            DeactivateButton();
+        }
+        else
+            GetComponent<Button>().interactable = true;
+
     }
 
     private void CalculateFillAmount()

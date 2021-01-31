@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     Text rounds;
 
+
     private void Awake()
     {
         if (instance == null)
@@ -46,8 +47,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+
         tutorialUI.SetActive(false);
-        rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
 
     private void initializeDictionary()
@@ -63,8 +64,7 @@ public class LevelManager : MonoBehaviour
 
         if (tutorialUI.activeSelf && Input.GetMouseButtonDown(0)) { 
             loadLevel("Scene2");
-            tutorialUI.SetActive(false);
-            GameManager.instance.IniciarJuego();
+           
         }
     }
 
@@ -128,15 +128,26 @@ public class LevelManager : MonoBehaviour
     {
         // Cargar animación
         transition.SetTrigger("Start");
+        tutorialUI.SetActive(false);
 
         // Esperar un poco
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.0f);
 
-        SceneManager.LoadScene(levelDictionary[pLevelName]);
+        SceneManager.LoadScene(levelDictionary[pLevelName]);    
+    }
+
+    public void ActiveHUD(bool active)
+    {
+        gameHUD.SetActive(active);
     }
 
     public void updateRounds()
     {
         rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
+    }
+
+    public void updateMoney(float dinero)
+    {
+        gameHUD.transform.Find("Money").GetComponent<Text>().text = dinero.ToString() + "$";
     }
 }

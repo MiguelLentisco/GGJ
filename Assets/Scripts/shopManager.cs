@@ -15,8 +15,8 @@ public class shopManager : MonoBehaviour
     Text[] textCostPowerUp;
 
 
-    int[] costPowerUp = { 50, 100, 200, 300, 500};
-    int[] amountPowerUp = new int[(int)PowerUp.NPOWERUPS];
+    int[] costPowerUp = { 50, 100, 200, 300};
+    int[] amountPowerUp = new int[(int)PowerUp.NPOWERUPS - 1];
 
     float savedMoney;
     GameManager GM;
@@ -25,7 +25,7 @@ public class shopManager : MonoBehaviour
     void Start()
     {
         // Set saved Data
-        GM = FindObjectsOfType<GameManager>()[0];
+        GM = GameManager.instance;
         LM = FindObjectOfType<LevelManager>();
         LM.setCanPause(false);
         LM.setCanHUD(false);
@@ -34,7 +34,6 @@ public class shopManager : MonoBehaviour
         amountPowerUp[1] = GM.GetNumberPowerUps(PowerUp.IncreaseLight);
         amountPowerUp[2] = GM.GetNumberPowerUps(PowerUp.SlowdownShips);
         amountPowerUp[3] = GM.GetNumberPowerUps(PowerUp.VisionMap);
-        amountPowerUp[4] = GM.GetNumberPowerUps(PowerUp.ShieldShip);
         for (int i = 0; i < costPowerUp.Length; i++)
             textCostPowerUp[i].text = "$" + costPowerUp[i].ToString();
 
@@ -54,7 +53,7 @@ public class shopManager : MonoBehaviour
         if(savedMoney >= costPowerUp[powerup]) // Comprar powerup
         {
             savedMoney -= costPowerUp[powerup];
-            amountPowerUp[powerup]++;
+            amountPowerUp[powerup] = amountPowerUp[powerup] + 1;
         } else // Avisar de que no hay dinero suficiente
         {
             //StartCoroutine(warningForSeconds(4));
@@ -71,7 +70,8 @@ public class shopManager : MonoBehaviour
     {
         sendDataToGameManager();
         // Llamar a LevelManager para cambiar de nivel
-        LM.loadLevel("string");
+        GM.IniciaRonda();
+        this.gameObject.SetActive(false);
     }
 
     IEnumerator warningForSeconds(int sec)
@@ -88,6 +88,7 @@ public class shopManager : MonoBehaviour
         GM.AddPowerUp(PowerUp.IncreaseLight, amountPowerUp[1]);
         GM.AddPowerUp(PowerUp.SlowdownShips, amountPowerUp[2]);
         GM.AddPowerUp(PowerUp.VisionMap, amountPowerUp[3]);
-        GM.AddPowerUp(PowerUp.ShieldShip, amountPowerUp[4]);
     }
+
+    
 }
