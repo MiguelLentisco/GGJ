@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text moneyText;
 
+    LevelManager levelManager;
+
     int rondaActual = 0;
     int nBarcosRestantes = 0;
     public float dinero = 0.0f;
@@ -75,6 +77,7 @@ public class GameManager : MonoBehaviour
         luzFaro = GameObject.FindGameObjectWithTag("Luz").GetComponent<LuzFaro>();
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         moneyText.text = dinero.ToString() + "$";
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         //AvanzaRonda();
     }
 
@@ -140,6 +143,7 @@ public class GameManager : MonoBehaviour
         ++rondaActual;
         nBarcosRestantes = rondaActual * (rondaActual + 1) / 2;
         SpawnBoats();
+        levelManager.updateRounds();
     }
 
 
@@ -172,6 +176,11 @@ public class GameManager : MonoBehaviour
     public void IncreaseLightPowerUp()
     {
         StartCoroutine(UsePUIncreaseLightRadius());
+    }
+
+    public int GetRounds()
+    {
+        return rondaActual;
     }
 
     public void ShowMapPowerUp()

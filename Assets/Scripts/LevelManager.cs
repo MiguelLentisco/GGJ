@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +24,8 @@ public class LevelManager : MonoBehaviour
     GameObject gameHUD;
     [SerializeField]
     AudioMixer audioMixer;
+    [SerializeField]
+    Text rounds;
 
     private void Awake()
     {
@@ -41,7 +44,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
+        rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
 
     private void initializeDictionary()
@@ -99,6 +102,11 @@ public class LevelManager : MonoBehaviour
     {
         canPause = pausable;
         pauseMenuUI.SetActive(pausable);
+    }
+
+    public void updateRounds()
+    {
+        rounds.text = "ROUND " + GameManager.instance.GetRounds().ToString();
     }
 
     public void setCanHUD(bool pausable)
