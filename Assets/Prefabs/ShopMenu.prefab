@@ -1186,7 +1186,7 @@ MonoBehaviour:
   moneyText: {fileID: 5527718470763010670}
   warningNotEnoughMoney: {fileID: 0}
   textAmountPowerUp:
-  - {fileID: 6299354203163693226}
+  - {fileID: 6479735629712842935}
   - {fileID: 6299354203163693226}
   - {fileID: 2012744857742338890}
   - {fileID: 8430088244257767521}

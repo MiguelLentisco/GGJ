@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     LevelManager levelManager;
     LightChange luzGlobal = null;
+    GameObject creditos = null;
 
     int rondaActual = 0;
     int nBarcosRestantes = 0;
@@ -77,8 +78,6 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
-            powerUpsAvailable[i] = 1;
     }
 
     // Start is called before the first frame update
@@ -89,6 +88,9 @@ public class GameManager : MonoBehaviour
 
     public void IniciarJuego()
     {
+        rondaActual = 0;
+        for (int i = 0; i < (int)PowerUp.NPOWERUPS; ++i)
+            powerUpsAvailable[i] = 0;
         spawnAcabado = false;
         dinero = 0.0f;
         lighthouse = GameObject.FindGameObjectWithTag("Faro").GetComponent<Lighthouse>();
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
         boatsSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnBoats>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         luzGlobal = GameObject.FindGameObjectWithTag("LuzGlobal").GetComponent<LightChange>();
+        creditos = GameObject.FindGameObjectWithTag("Creditos");
         levelManager.updateRounds();
         levelManager.updateMoney(dinero);
         IniciaRonda();
@@ -168,7 +171,8 @@ public class GameManager : MonoBehaviour
 
     void PlayerPierde()
     {
-
+        Time.timeScale = 0;
+        creditos.SetActive(true);
     }
 
     public void IniciaRonda()
