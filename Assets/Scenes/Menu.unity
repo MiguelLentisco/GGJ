@@ -1158,7 +1158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 915045730308374818, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 921445989938889637, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_FontData.m_Font
@@ -1248,6 +1248,10 @@ PrefabInstance:
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.85882354
       objectReference: {fileID: 0}
+    - target: {fileID: 6067536457473873008, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1566b6e922e1b0c4490d1a4aab0cddf7, type: 3}
     - target: {fileID: 6100859270352711018, guid: 657d4e3d539650849b58c947b21b17fc, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.70425206
@@ -1310,6 +1314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5108639627079444469, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6285051399150767023, guid: eebdaebb9e2521f488cc65ad25694b28, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
