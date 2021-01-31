@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boom: {fileID: 5621058680190695916, guid: 15344af3d83c5584facab36441a1f200, type: 3}
+  sounds: {fileID: 8759950557129315347, guid: 922fa12b054e7f244b041714cca10c2e, type: 3}
 --- !u!114 &-1866359458744595416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dineroBarco: 100
   winparticle: {fileID: 4615975632056426844, guid: 511cc9f18938bf7498cdcbabfc145090, type: 3}
+  sounds: {fileID: 8759950557129315347, guid: 922fa12b054e7f244b041714cca10c2e, type: 3}
 --- !u!1 &8493945670815352570
 GameObject:
   m_ObjectHideFlags: 0

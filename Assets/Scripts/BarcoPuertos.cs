@@ -11,6 +11,9 @@ public class BarcoPuertos : MonoBehaviour
     [SerializeField]
     GameObject winparticle;
 
+    [SerializeField]
+    GameObject sounds;
+
     private void Start()
     {
         colorBarco = GetComponent<BarcoLuz>().colorBarco;
@@ -23,6 +26,8 @@ public class BarcoPuertos : MonoBehaviour
         {
             GameManager.instance.AddMoney(HowMuchMoneyIEarned(other.tag));
             Instantiate(winparticle, transform.position, Quaternion.identity);
+            GameObject newSound = Instantiate(sounds, transform.position, Quaternion.identity);
+            newSound.GetComponent<BoatSoundManager>().PlayWinpoint();
             Destroy(this.gameObject);
         }
     }
