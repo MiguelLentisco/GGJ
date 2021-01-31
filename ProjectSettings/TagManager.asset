@@ -15,6 +15,7 @@ TagManager:
   - PuebloRojo
   - PuebloAmarillo
   - PuebloVerde
+  - LevelManager
   layers:
   - Default
   - TransparentFX

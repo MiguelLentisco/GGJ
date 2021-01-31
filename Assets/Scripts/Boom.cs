@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Boom : MonoBehaviour
 {
+    [SerializeField]
+    float time = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,7 @@ public class Boom : MonoBehaviour
 
     IEnumerator DestruirParticula()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(time);
         Destroy(this.gameObject);
     }
 }
