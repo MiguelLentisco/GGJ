@@ -100,7 +100,7 @@ MonoBehaviour:
   luzVerde: {r: 0, g: 1, b: 0, a: 0}
   luzAmarilla: {r: 1, g: 1, b: 0, a: 0}
   luzAzul: {r: 0, g: 0, b: 1, a: 0}
-  colorBarco: 0
+  colorBarco: 4
 --- !u!114 &2736244777161527856
 MonoBehaviour:
   m_ObjectHideFlags: 0
