@@ -31,4 +31,9 @@ public class PauseScript : MonoBehaviour
         Time.timeScale = 1.0f;
         canPause = true;
     }
+
+    public void quitPlaying()
+    {
+        Application.Quit();
+    }
 }
