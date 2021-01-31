@@ -57,7 +57,7 @@ public class shopManager : MonoBehaviour
             amountPowerUp[powerup]++;
         } else // Avisar de que no hay dinero suficiente
         {
-            StartCoroutine(warningForSeconds(4));
+            //StartCoroutine(warningForSeconds(4));
         }
     }
 
